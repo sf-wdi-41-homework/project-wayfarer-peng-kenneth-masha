@@ -1,4 +1,4 @@
-# <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> Project Vagabond
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> Project Wayfarer
 
 ## Brief
 
@@ -99,7 +99,7 @@ You will be evaluated on the following measures:
 1. Creativity
   - polished appearance
   - personalized spin, not just a template
- a travel community, code-named **Project Vagabond** for now, for users to share tips (AKA posts) about their favorite locations around the world.
+ a travel community, code-named **Project Wayfarer** for now, for users to share tips (AKA posts) about their favorite locations around the world.
 
 ## Client Contract
 
