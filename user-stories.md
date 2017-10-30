@@ -4,14 +4,14 @@
 
 ---
 
-## Sprint 1: Basic Auth & Profiles
-
+## Sprint 1: Basic Auth & Profiles 
 **A user should be able to:**
 
 1. Navigate to "/" and see a basic splash page with:
   * The name of the website.
   * Links to "Log In" and "Sign Up".
-1. Sign up for an account.
+1. Sign up for an account. You may find [this](https://github.com/SF-WDI-LABS/React-And-Passport) helpful
+
 1. Log in to their account if they already have one.
 1. Be redirected to their public profile page after logging in.
 1. On their public profile page, see their name, the current city they have set in their profile, and their join date.
