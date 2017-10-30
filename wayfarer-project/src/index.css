@@ -21,3 +21,20 @@ body {
 .portfolio-item {
   margin-bottom: 30px;
 }
+
+.topics{
+  margin-top: 10px;
+color: black;
+}
+
+.topicOne{
+  border: 1px solid black;
+}
+
+.topicTwo{
+  border: 1px solid black;
+}
+
+.topicThree{
+  border: 1px solid black;
+}
