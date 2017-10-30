@@ -51,7 +51,7 @@ After you have completed your project, **deploy to heroku** to get practice gett
 
 ## Presentation
 
-Each group will present their project on **DATE** starting at **TIME** for 10 minutes.
+Each group will present their project on **Friday, November 3rd** starting at **10:00** for 15 minutes.
 
 Each member of your group should speak for equal parts during your presentation and mention which parts of the project they worked on.
 
