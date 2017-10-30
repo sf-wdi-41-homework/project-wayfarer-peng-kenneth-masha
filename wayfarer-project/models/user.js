@@ -8,7 +8,8 @@ var UserSchema = new Schema({
   firstName: String,
   lastName: String,
   currentCity: String,
-  joinDate: String
+  joinDate: String,
+  img: String,
 });
 
 UserSchema.plugin(passportLocalMongoose);
