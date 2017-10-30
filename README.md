@@ -74,21 +74,21 @@ You will be evaluated on the following measures:
   - planning to avoid excessive merge conflicts
   - deliberate approach - routeside-in, logical progress from skateboard to car
   - the code is your original code
-1. Execution
+2. Execution
   - to what degree does your app fulfill the user stories?
   - code is clean
   - follows good naming conventions
   - code is free of obvious errors and bugs
   - code demonstrates good problem solving
   - code is DRY
-1. Technical requirements
+3. Technical requirements
   - users are authenticated
   - full CRUD for cities
   - custom HTML, CSS, and JavaScript (using the asset pipeline)
   - users are authorized
   - deployed to heroku
   - commenting (optional)
-1. Creativity
+4. Creativity
   - polished appearance
   - personalized spin, not just a template
  a travel community, code-named **Project Wayfarer** for now, for users to share tips (AKA posts) about their favorite locations around the world.
