@@ -4,6 +4,8 @@ import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import './profile.css';
 import ShowPage from './ShowPage.js';
+import Avatar from './Avatar';
+
 
 class Profile extends Component {
   constructor(props) {
@@ -67,29 +69,31 @@ class Profile extends Component {
         <div className="topics container">
           <div className="row">
             <div className="col-md-6 boxOne">
-              Box 1
+              <Avatar/>
             </div>
             <div className="col-md-6 boxTwo">
               <div className="row">
-              <div className="col-md-6 nestedBox1">
-                Nested 1
+              <div className="col-md-12 nestedBox1">
+                First Name Last Name
               </div>
               </div>
               <div className="row">
-              <div className="col-md-6 nestedBox2">
-                Nested 2
+              <div className="col-md-12 nestedBox2">
+                Current City
               </div>
               </div>
               <div className="row">
-              <div className="col-md-6 nestedBox3">
-                Nested 3
+              <div className="col-md-12 nestedBox3">
+                Joined Date
               </div>
               </div>
             </div>
           </div>
           <div className="row">
-            <div className="col-md-12">
-              <p>This is where the posts go </p>
+            <div className="col-md-12" id ="postArea">
+              <h2>Post 1:</h2><p>San Francisco </p>
+              <h2>Post 2:</h2><p>Seattle </p>
+              <h2>Post 3:</h2><p>New York </p>
             </div>
           </div>
         </div>
