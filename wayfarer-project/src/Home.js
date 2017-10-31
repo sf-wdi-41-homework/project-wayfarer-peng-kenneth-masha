@@ -4,7 +4,6 @@ import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import './home.css';
 
-
 class Home extends Component {
 
   constructor(props) {
@@ -19,33 +18,25 @@ class Home extends Component {
   }
 
   handleSubmit(e){
-    console.log('yay')
-    console.log(this.state.email, this.state.password)
-
+   e.preventDefault();
    let email = this.state.email;
    let password = this.state.password;
-   axios({
-       method: 'post',
-       url: `http://localhost:3002/login`,
-       data: {
-       email: email,
-       password: password,
-       },
-      }).then(res => {
+   axios.post(`http://localhost:3002/login`, {
+     email: email,
+     password: password
+   }).then(res => {
      console.log('res is ', res);
      this.setState({isAuthenticated: true, id:res._id});
-   }).catch(err => {console.log("login error: ", err)});
+   }).catch(err => {console.log(err)});
   }
 
   handleLogout(){
     this.setState({isAuthenticated: false, id:''});
   }
   handlePasswordChange(e){
-    console.log(this.state.password)
     this.setState({password: e.target.value});
   }
   handleEmailChange(e){
-    console.log(this.state.email)
     this.setState({email: e.target.value});
   }
 
@@ -76,26 +67,25 @@ class Home extends Component {
 <div className="modal fade" id="myModal">
 	<div className="modal-dialog">
       <div className="modal-content">
-        <form method="POST" onSubmit={this.handleSubmit}>
-          <div className="modal-header">
-            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 className="modal-title">Log-in</h4>
-          </div>
-          <div className="modal-body">
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1" >Email address</label>
-              <input className="form-control"  value= {this.state.email} onChange={this.handleEmailChange} name="email" id="exampleInputEmail1" placeholder="Enter email" type="email"/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1" >Password</label>
-              <input className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" id="exampleInputPassword1" placeholder="Password" type="password"/>
-            </div>
-          </div>
-          <div className="modal-footer">
-              <a data-dismiss="modal" className="btn">Close</a>
-              <a onClick={this.handleSubmit} value="login" className="btn btn-primary">Log-in</a>
-          </div>
-        </form>
+        <div className="modal-header">
+          <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 className="modal-title">Log-in</h4>
+        </div>
+        <div className="modal-body">
+          <div className="form-group">
+    		<label htmlFor="exampleInputEmail1" name="email">Email address</label>
+    		<input className="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email"/>
+  		  </div>
+		  <div className="form-group">
+		  	<label htmlFor="exampleInputPassword1" name="password">Password</label>
+			<input className="form-control" id="exampleInputPassword1" placeholder="Password" type="password"/>
+		  </div>
+          <p className="text-right"><a href="#">Forgot password?</a></p>
+        </div>
+        <div className="modal-footer">
+          <a href="#" data-dismiss="modal" className="btn">Close</a>
+          <a href="#" className="btn btn-primary">Log-in</a>
+        </div>
       </div>
     </div>
 </div>
