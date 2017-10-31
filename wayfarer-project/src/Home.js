@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
+import './home.css';
 
 class Home extends Component {
 
@@ -92,42 +93,52 @@ class Home extends Component {
           </div>
         </nav>
 
-    		<div className="ourCarousel container-fluid">
-    			<div className="row">
-    				<div className="col-md-12">
-    					<div className="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
-    						<ol className="carousel-indicators">
-    							<li className="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
-    							<li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
-    							<li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
-    						</ol>
-    						<div className="carousel-inner" role="listbox">
-    							<div className="carousel-item active">
-    								<img alt="First slide" className="d-block img-fluid" src="/674925.png"/>
-    								<div className="carousel-caption d-none d-md-block">
-    									<h3>Heading 1</h3>
-    									<p>Caption 1</p>
-    								</div>
-    							</div>
-    							<div className="carousel-item">
-    								<img alt="Second slide" className="d-block img-fluid" src="/mothers-day-aurora-borealis-c2a9-christopher-martin-5949.jpg"/>
-    								<div className="carousel-caption d-none d-md-block">
-    									<h3>Heading 2</h3>
-    									<p>Caption 2</p>
-    								</div>
-    							</div>
-    							<div className="carousel-item">
-    								<img alt="Third slide" className="d-block img-fluid" src="/travel-background-1469438128PVK.jpg"/>
-    								<div className="carousel-caption d-none d-md-block">
-    									<h3>Heading 3</h3>
-    									<p>Caption 3</p>
-    								</div>
-    							</div>
-    						</div><a className="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" className="carousel-control-prev-icon"></span> <span className="sr-only">Previous</span></a> <a className="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" className="carousel-control-next-icon"></span> <span className="sr-only">Next</span></a>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
+        <div className="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+
+  <div className="overlay"></div>
+
+
+  <ol className="carousel-indicators">
+    <li data-target="#bs-carouse" data-slide-to="0" className="active"></li>
+    <li data-target="#bs-carouse" data-slide-to="1"></li>
+    <li data-target="#bs-carouse" data-slide-to="2"></li>
+  </ol>
+
+
+  <div className="carousel-inner">
+    <div className="item slides active">
+      <div className="slide-1"></div>
+      <div className="hero">
+        <hgroup>
+            <h1>We are creative</h1>
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        <button className="btn btn-hero btn-lg" role="button">See all features</button>
+      </div>
+    </div>
+    <div className="item slides">
+      <div className="slide-2"></div>
+      <div className="hero">
+        <hgroup>
+            <h1>We are smart</h1>
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        <button className="btn btn-hero btn-lg" role="button">See all features</button>
+      </div>
+    </div>
+    <div className="item slides">
+      <div className="slide-3"></div>
+      <div className="hero">
+        <hgroup>
+            <h1>We are amazing</h1>
+            <h3>Get start your next awesome project</h3>
+        </hgroup>
+        <button className="btn btn-hero btn-lg" role="button">See all features</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     		<div className="topics container">
     			<div className="row">
     				<div className="col-md-4 topicOne">
