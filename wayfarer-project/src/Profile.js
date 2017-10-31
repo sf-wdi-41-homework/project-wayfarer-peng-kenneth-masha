@@ -3,6 +3,7 @@ import axios from 'axios';
 import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import './profile.css';
+import ShowPage from './ShowPage.js';
 
 class Profile extends Component {
   constructor(props) {
@@ -92,6 +93,7 @@ class Profile extends Component {
             </div>
           </div>
         </div>
+          <ShowPage />
       </div>
       )
     }
