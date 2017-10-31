@@ -58,7 +58,7 @@ class Home extends Component {
           <div className="container-fluid">
 
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">Home</a>
+              <a className="navbar-brand" href="{Profile}">Home</a>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" data-target="#bs-example-navbar-collapse-1"><b>Login</b> <span className="caret"></span></a>
             </div>
 
