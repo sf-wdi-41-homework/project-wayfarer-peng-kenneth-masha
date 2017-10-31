@@ -51,112 +51,91 @@ class Home extends Component {
   render() {
     if(this.state.isAuthenticated === false){
     return (
-      <div classNameName="App">
-      <header>
+      <div className="home">
 
-        <nav className="navbar navbar-default navbar-inverse" role="navigation">
-          <div className="container-fluid">
+        <nav className="navbar navbar-default" role="navigation">
+  <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul className="nav navbar-nav navbar-left">
+      <li><a href="#home"> Home </a></li>
+    </ul>
+    <ul className="nav navbar-nav navbar-right">
+      <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
+    </ul>
+  </div>
+</nav>
 
-            <div className="navbar-header">
-              <a className="navbar-brand" href="{Profile}">Home</a>
-              <a href="#" className="dropdown-toggle" data-toggle="dropdown" data-target="#bs-example-navbar-collapse-1"><b>Login</b> <span className="caret"></span></a>
-            </div>
-
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        			<ul id="login-dp" className="dropdown-menu">
-        				<li>
-        					 <div className="row">
-        							<div className="col-md-12">
-        								 <form onSubmit={this.handleSubmit} className="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-        										<div className="form-group">
-        											 <label className="sr-only" for="exampleInputEmail2">Email address</label>
-        											 <input onChange={this.handleEmailChange} value={this.state.email} type="email" className="form-control" id="exampleInputEmail2" placeholder="Email address" required/>
-        										</div>
-        										<div className="form-group">
-        											 <label className="sr-only" for="exampleInputPassword2">Password</label>
-        											 <input onChange={this.handlePasswordChange} value={this.state.password} type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" required/>
-                               <div className="help-block text-right"><a href="">Forget the password ?</a></div>
-        										</div>
-        										<div className="form-group">
-        											 <button type="submit" className="btn btn-primary btn-block">Sign in</button>
-        										</div>
-        								 </form>
-        							</div>
-        							<div className="bottom text-center">
-        								New here ? <a href="#"><b>Join Us</b></a>
-        							</div>
-        					 </div>
-        				</li>
-        			</ul>
-
-            </div>
-          </div>
-        </nav>
-
-        <div className="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-
-  <div className="overlay"></div>
-
-
-  <ol className="carousel-indicators">
-    <li data-target="#bs-carouse" data-slide-to="0" className="active"></li>
-    <li data-target="#bs-carouse" data-slide-to="1"></li>
-    <li data-target="#bs-carouse" data-slide-to="2"></li>
-  </ol>
-
-
-  <div className="carousel-inner">
-    <div className="item slides active">
-      <div className="slide-1"></div>
-      <div className="hero">
-        <hgroup>
-            <h1>We are creative</h1>
-            <h3>Get start your next awesome project</h3>
-        </hgroup>
-        <button className="btn btn-hero btn-lg" role="button">See all features</button>
+<div className="modal fade" id="myModal">
+	<div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 className="modal-title">Log-in</h4>
+        </div>
+        <div className="modal-body">
+          <div className="form-group">
+    		<label for="exampleInputEmail1">Email address</label>
+    		<input className="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email"/>
+  		  </div>
+		  <div className="form-group">
+		  	<label for="exampleInputPassword1">Password</label>
+			<input className="form-control" id="exampleInputPassword1" placeholder="Password" type="password"/>
+		  </div>
+          <p className="text-right"><a href="#">Forgot password?</a></p>
+        </div>
+        <div className="modal-footer">
+          <a href="#" data-dismiss="modal" className="btn">Close</a>
+          <a href="#" className="btn btn-primary">Log-in</a>
+        </div>
       </div>
     </div>
-    <div className="item slides">
-      <div className="slide-2"></div>
-      <div className="hero">
-        <hgroup>
-            <h1>We are smart</h1>
-            <h3>Get start your next awesome project</h3>
-        </hgroup>
-        <button className="btn btn-hero btn-lg" role="button">See all features</button>
+</div>
+
+        <div className="myCarousel">
+            <div id="myCarousel" className="carousel slide" data-ride="carousel">
+
+                <ol className="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <div className="carousel-inner">
+                    <div className="item active">
+                        <img src="/public/images/674925.png" alt="First Slide"/>
+                    </div>
+                    <div className="item">
+                        <img src="/Users/mariaarbisman/WDI/project-wayfarer-peng-kenneth-masha/wayfarer-project/public/images/mothers-day-aurora-borealis-c2a9-christopher-martin-5949.jpg" alt="Second Slide"/>
+                    </div>
+                    <div className="item">
+                        <img src="/Users/mariaarbisman/WDI/project-wayfarer-peng-kenneth-masha/wayfarer-project/public/images/travel-background-1469438128PVK.jpg" alt="Third Slide"/>
+                    </div>
+                </div>
+
+                <a className="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span className="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a className="carousel-control right" href="#myCarousel" data-slide="next">
+                    <span className="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+
+  <div className="topics container">
+    <div className="row">
+      <div className="col-md-4 topicOne">
+            Topic 1
       </div>
-    </div>
-    <div className="item slides">
-      <div className="slide-3"></div>
-      <div className="hero">
-        <hgroup>
-            <h1>We are amazing</h1>
-            <h3>Get start your next awesome project</h3>
-        </hgroup>
-        <button className="btn btn-hero btn-lg" role="button">See all features</button>
+      <div className="col-md-4 topicTwo">
+            Topic 2
+      </div>
+      <div className="col-md-4 topicThree">
+            Topic 3
       </div>
     </div>
   </div>
-</div>
-
-    		<div className="topics container">
-    			<div className="row">
-    				<div className="col-md-4 topicOne">
-    					Topic 1
-    				</div>
-    				<div className="col-md-4 topicTwo">
-    					Topic 2
-    				</div>
-    				<div className="col-md-4 topicThree">
-    					Topic 3
-    				</div>
-    			</div>
-    		</div>
-    	</header>
-      </div>
+  </div>
     );
   }
 }
 }
-
 export default Home;
