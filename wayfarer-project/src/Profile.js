@@ -5,25 +5,79 @@ import {Link} from 'react-router';
 import './profile.css';
 
 class Profile extends Component {
-    render() {
-      return(
-        <div className="profile">
-        <nav className="navbar navbar-default navbar-inverse" role="navigation">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-              <a className="navbar-brand" href="#">Home</a>
-            </div>
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:'', password: '', id:'', isAuthenticated: false
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
 
-            <button type="button" className="btn btn-default btn-sm">
-                   <span className="glyphicon glyphicon-log-out"></span> Log out
-                 </button>
+  handleSubmit(e){
+   e.preventDefault();
+   let email = this.state.email;
+   let password = this.state.password;
+   axios.post(`http://localhost:3002/login`, {
+     email: email,
+     password: password
+   }).then(res => {
+     console.log('res is ', res);
+     this.setState({isAuthenticated: true, id:res._id});
+   }).catch(err => {console.log(err)});
+  }
+
+  handleLogout(){
+    this.setState({isAuthenticated: false, id:''});
+  }
+  handlePasswordChange(e){
+    this.setState({password: e.target.value});
+  }
+  handleEmailChange(e){
+    this.setState({email: e.target.value});
+  }
+
+  getInitialState(){
+    return {
+      isAuthenticated : false
+    }
+  }
+
+  render() {
+    if(this.state.isAuthenticated === false){
+    return (
+        <div className="profile">
+          <nav className="navbar navbar-default navbar-inverse" role="navigation">
+            <div className="container">
+              <div className="navbar-header">
+                <ul className="list-inline">
+                <li>
+                  <a className="navbar-brand" href="/">Home</a>
+                </li>
+                <li>
+                  <div className="col-sm-3 col-md-3">
+                    <form className="navbar-form" role="search">
+                      <div className="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q"/>
+                        <div className="input-group-btn">
+                          <button className="btn" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </li>
+                <li>
+                  <div className="navbar-header float-right">
+                    <button type="button" className="btn btn-info btn-sm">
+                      <span className="glyphicon glyphicon-log-out"></span> Log out
+                    </button>
+                  </div>
+                </li>
+              </ul>
             </div>
+          </div>
         </nav>
         <div className="topics container">
           <div className="row">
@@ -57,5 +111,6 @@ class Profile extends Component {
       </div>
       )
     }
+}
 }
 export default Profile;
