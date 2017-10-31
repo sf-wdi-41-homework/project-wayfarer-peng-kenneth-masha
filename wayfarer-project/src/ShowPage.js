@@ -26,8 +26,6 @@ class ShowPage extends Component {
               <div className="col-md-6">Content</div>
           </div>
   </div>
-
-
   )
   }
 }
