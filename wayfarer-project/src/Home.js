@@ -8,11 +8,11 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '', password: '', id:'', isAuthenticated: false
+      email:'', password: '', id:'', isAuthenticated: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleemailChange = this.handleemailChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -32,12 +32,13 @@ class Home extends Component {
   handleLogout(){
     this.setState({isAuthenticated: false, id:''});
   }
-  handleEmailChange(e){
-    this.setState({email: e.target.value});
-  }
   handlePasswordChange(e){
     this.setState({password: e.target.value});
   }
+  handleEmailChange(e){
+    this.setState({email: e.target.value});
+  }
+
   getInitialState(){
     return {
       isAuthenticated : false
@@ -56,17 +57,11 @@ class Home extends Component {
           <div className="container-fluid">
 
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
               <a className="navbar-brand" href="#">Home</a>
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown" data-target="#bs-example-navbar-collapse-1"><b>Login</b> <span className="caret"></span></a>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span className="caret"></span></a>
         			<ul id="login-dp" className="dropdown-menu">
         				<li>
         					 <div className="row">
@@ -74,11 +69,11 @@ class Home extends Component {
         								 <form onSubmit={this.handleSubmit} className="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
         										<div className="form-group">
         											 <label className="sr-only" for="exampleInputEmail2">Email address</label>
-        											 <input onChange={this.handleEmailChange} type="email" className="form-control" id="exampleInputEmail2" placeholder="Email address" required/>
+        											 <input onChange={this.handleEmailChange} value={this.state.email} type="email" className="form-control" id="exampleInputEmail2" placeholder="Email address" required/>
         										</div>
         										<div className="form-group">
         											 <label className="sr-only" for="exampleInputPassword2">Password</label>
-        											 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" required/>
+        											 <input onChange={this.handlePasswordChange} value={this.state.password} type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" required/>
                                <div className="help-block text-right"><a href="">Forget the password ?</a></div>
         										</div>
         										<div className="form-group">
