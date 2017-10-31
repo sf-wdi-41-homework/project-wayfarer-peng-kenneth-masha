@@ -1,7 +1,53 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
 
 class Home extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '', password: '', id:'', isAuthenticated: false
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleemailChange = this.handleemailChange.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleSubmit(e){
+   e.preventDefault();
+   let email = this.state.email;
+   let password = this.state.password;
+   axios.post(`http://localhost:3002/login`, {
+     email: email,
+     password: password
+   }).then(res => {
+     console.log('res is ', res);
+     this.setState({isAuthenticated: true, id:res._id});
+   }).catch(err => {console.log(err)});
+  }
+
+  handleLogout(){
+    this.setState({isAuthenticated: false, id:''});
+  }
+  handleEmailChange(e){
+    this.setState({email: e.target.value});
+  }
+  handlePasswordChange(e){
+    this.setState({password: e.target.value});
+  }
+  getInitialState(){
+    return {
+      isAuthenticated : false
+    }
+  }
+
+
+
   render() {
+    if(this.state.isAuthenticated === false){
     return (
       <div classNameName="App">
       <header>
@@ -25,15 +71,15 @@ class Home extends Component {
         				<li>
         					 <div className="row">
         							<div className="col-md-12">
-        								 <form className="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+        								 <form onSubmit={this.handleSubmit} className="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
         										<div className="form-group">
         											 <label className="sr-only" for="exampleInputEmail2">Email address</label>
-        											 <input type="email" className="form-control" id="exampleInputEmail2" placeholder="Email address" required/>
+        											 <input onChange={this.handleEmailChange} type="email" className="form-control" id="exampleInputEmail2" placeholder="Email address" required/>
         										</div>
         										<div className="form-group">
         											 <label className="sr-only" for="exampleInputPassword2">Password</label>
-        											 <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" required/>
-                                                     <div className="help-block text-right"><a href="">Forget the password ?</a></div>
+        											 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" required/>
+                               <div className="help-block text-right"><a href="">Forget the password ?</a></div>
         										</div>
         										<div className="form-group">
         											 <button type="submit" className="btn btn-primary btn-block">Sign in</button>
@@ -104,6 +150,7 @@ class Home extends Component {
       </div>
     );
   }
+}
 }
 
 export default Home;

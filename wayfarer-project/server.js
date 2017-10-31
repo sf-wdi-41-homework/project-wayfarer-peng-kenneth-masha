@@ -50,8 +50,8 @@ app.use(function(req, res, next) {
 
 app.get('/api/users', controllers.user.index);
 app.post('/signup', function signup(req, res) {
-  console.log(`${req.body.username} ${req.body.password} ${Date.now()}`);
-  User.register(new User({ username: req.body.username, joinDate: Date.now()}), req.body.password,
+  console.log(`${req.body.email} ${req.body.password} ${Date.now()}`);
+  User.register(new User({ email: req.body.email, joinDate: Date.now()}), req.body.password,
     function (err, newUser) {
       passport.authenticate('local')(req, res, function() {
         res.send(newUser);
