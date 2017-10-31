@@ -73,11 +73,11 @@ class Home extends Component {
         </div>
         <div className="modal-body">
           <div className="form-group">
-    		<label for="exampleInputEmail1">Email address</label>
+    		<label htmlFor="exampleInputEmail1" name="email">Email address</label>
     		<input className="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email"/>
   		  </div>
 		  <div className="form-group">
-		  	<label for="exampleInputPassword1">Password</label>
+		  	<label htmlFor="exampleInputPassword1" name="password">Password</label>
 			<input className="form-control" id="exampleInputPassword1" placeholder="Password" type="password"/>
 		  </div>
           <p className="text-right"><a href="#">Forgot password?</a></p>
