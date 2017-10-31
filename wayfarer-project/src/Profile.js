@@ -49,36 +49,20 @@ class Profile extends Component {
     if(this.state.isAuthenticated === false){
     return (
         <div className="profile">
-          <nav className="navbar navbar-default navbar-inverse" role="navigation">
-            <div className="container">
-              <div className="navbar-header">
-                <ul className="list-inline">
-                <li>
-                  <a className="navbar-brand" href="/">Home</a>
-                </li>
-                <li>
-                  <div className="col-sm-3 col-md-3">
-                    <form className="navbar-form" role="search">
-                      <div className="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="q"/>
-                        <div className="input-group-btn">
-                          <button className="btn" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </li>
-                <li>
-                  <div className="navbar-header float-right">
-                    <button type="button" className="btn btn-info btn-sm">
-                      <span className="glyphicon glyphicon-log-out"></span> Log out
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+          <nav className="navbar navbar-default" role="navigation">
+    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul className="nav navbar-nav navbar-left">
+        <li><a href="#home"> Home </a></li>
+      </ul>
+      <ul className="nav navbar-nav navbar-right text-center">
+        <button type="button" className="btn btn-info btn-sm text-center">
+          <span className="glyphicon glyphicon-log-out"></span> Log out
+        </button>
+      </ul>
+    </div>
+  </nav>
+
+
         <div className="topics container">
           <div className="row">
             <div className="col-md-6 boxOne">
