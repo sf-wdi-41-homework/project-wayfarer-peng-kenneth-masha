@@ -56,7 +56,7 @@ class Home extends Component {
         <nav className="navbar navbar-default" role="navigation">
   <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul className="nav navbar-nav navbar-left">
-      <li><a href="#home"> Home </a></li>
+      <li><a href="#home">Home</a></li>
     </ul>
     <ul className="nav navbar-nav navbar-right">
       <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
@@ -100,14 +100,14 @@ class Home extends Component {
                 </ol>
 
                 <div className="carousel-inner">
-                    <div className="item active">
-                        <img src="/public/images/674925.png" alt="First Slide"/>
+                    <div className="item active imageOne">
+                        <img src="https://s-media-cache-ak0.pinimg.com/originals/78/a0/3f/78a03f2e10129bac5cda0aaa96033bc2.jpg" alt="Compass"/>
                     </div>
-                    <div className="item">
-                        <img src="/Users/mariaarbisman/WDI/project-wayfarer-peng-kenneth-masha/wayfarer-project/public/images/mothers-day-aurora-borealis-c2a9-christopher-martin-5949.jpg" alt="Second Slide"/>
+                    <div className="item imageTwo">
+                        <img src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/Travel-wallpapers.jpg" alt="Second Slide"/>
                     </div>
-                    <div className="item">
-                        <img src="/Users/mariaarbisman/WDI/project-wayfarer-peng-kenneth-masha/wayfarer-project/public/images/travel-background-1469438128PVK.jpg" alt="Third Slide"/>
+                    <div className="item imageThree">
+                        <img src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/fantasy-street-abstract-nature-night-city-landscape-dream-wallpapers-wallpaper-wallwuzz-hd-wallpaper-10282.jpg" alt="Third Slide"/>
                     </div>
                 </div>
 
