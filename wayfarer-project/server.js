@@ -44,15 +44,18 @@ app.use(function (req, res, next) {
   //Remove caching
   res.setHeader('Cache-Control', 'no-cache');
   next();
-});
+  });
+
 
 
 //auth routes
 app.get('/api/users', controllers.user.index);
 app.post('/signup', function signup(req, res) {
-  console.log(`${req.body.email} ${req.body.password}`);
-  User.register(new User({ email: req.body.email }), req.body.password,
+  console.log(`${req.body.username} ${req.body.password}`);
+  console.log("kkk: ", req.body)
+  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: Date.now() }), req.body.password,
     function (err, newUser) {
+      if(err){console.log(err)}
       passport.authenticate('local')(req, res, function() {
         res.send(newUser);
       });
@@ -60,8 +63,8 @@ app.post('/signup', function signup(req, res) {
   )});
 app.post('/login', passport.authenticate('local'), function (req, res) {
   console.log("log Hit")
-  console.log(JSON.stringify(req.user));
-  res.send(req.user);
+  console.log(JSON.stringify(req.user.username));
+  res.send(req.user.username);
 });
 app.get('/logout', function (req, res) {
   console.log("BEFORE logout", req);

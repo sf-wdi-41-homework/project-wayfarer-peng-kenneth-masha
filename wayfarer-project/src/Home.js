@@ -3,6 +3,7 @@ import axios from 'axios';
 import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import './home.css';
+import Profile from './Profile'
 
 
 class Home extends Component {
@@ -28,7 +29,7 @@ class Home extends Component {
        method: 'post',
        url: `http://localhost:3002/login`,
        data: {
-       email: email,
+       username: email,
        password: password,
        },
       }).then(res => {
@@ -76,15 +77,15 @@ class Home extends Component {
 <div className="modal fade" id="myModal">
 	<div className="modal-dialog">
       <div className="modal-content">
-        <form method="POST" onSubmit={this.handleSubmit}>
+        <form >
           <div className="modal-header">
             <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 className="modal-title">Log-in</h4>
           </div>
           <div className="modal-body">
             <div className="form-group">
-              <label htmlFor="exampleInputEmail1" >Email address</label>
-              <input className="form-control"  value= {this.state.email} onChange={this.handleEmailChange} name="email" id="exampleInputEmail1" placeholder="Enter email" type="email"/>
+              <label htmlFor="exampleInputemail1" >email address</label>
+              <input className="form-control"  value= {this.state.email} onChange={this.handleEmailChange} name="username" id="exampleInputemail1" placeholder="Enter email" type="email"/>
             </div>
             <div className="form-group">
               <label htmlFor="exampleInputPassword1" >Password</label>
@@ -143,6 +144,11 @@ class Home extends Component {
   </div>
   </div>
     );
+  }else {
+    console.log('loged-in')
+    return(
+      <Profile />
+    )
   }
 }
 }

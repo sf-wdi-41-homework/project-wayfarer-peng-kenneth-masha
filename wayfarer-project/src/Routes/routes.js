@@ -12,11 +12,9 @@ var routes = (
 		<Route path ='/' component={Home} />
     <Route path='/signup' component={SignUp} />
 		<Route path="/profile" component={Profile}/>
-<<<<<<< HEAD
 		<Route path ='/login' component={Home} />
-=======
 		<Route path="/cities" component={CitiesPage}/>
->>>>>>> aea52a724c76520182df823a0f414075b0be5891
+
 	</div>
 )
 
