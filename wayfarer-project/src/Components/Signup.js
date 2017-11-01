@@ -11,7 +11,9 @@ class SignUp extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
   }
   handleSubmit(e){
     e.preventDefault();
@@ -20,10 +22,18 @@ class SignUp extends Component {
     let lastName = this. state.lastName;
     let firstName = this.state.firstName;
     console.log(this.state.email);
-    axios.post(`http://localhost:3002/signup`,{username: email,password: password, lastName: lastName, firstName: firstName})
+    axios({
+      method: 'post',
+      url: `http://localhost:3002/signup`,
+      data: {
+        username: email,
+        password: password,
+        lastName: lastName,
+        firstName: firstName}
+      })
     .then(res => {
       console.log('res is ', res);
-      browserHistory.push('/login');
+      browserHistory.push('/');
     }).catch( err => {
       console.log(err);
     })
@@ -43,23 +53,23 @@ class SignUp extends Component {
 
   render(){
     return(
-      <form class="form-horizontal">
+      <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <fieldset>
 
           <legend>Register Here</legend>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="fname">First Name</label>
-            <div class="col-md-4">
-            <input value={this.state.firstName} onChange={this.handleFirstNameChange} id="fname" name="firstName" type="text" placeholder="John" class="form-control input-md" required=""/>
+          <div className="form-group">
+            <label className="col-md-4 control-label" >First Name</label>
+            <div className="col-md-4">
+            <input value={this.state.firstName} onChange={this.handleFirstNameChange} id="fname" name="firstName" type="text" placeholder="John" className="form-control input-md" required=""/>
 
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="lname">Last Name</label>
-            <div class="col-md-4">
-            <input id="lname" value={this.state.lastName} onChange={this.handleLastNameChange} name="lastName" type="text" placeholder="Doe" class="form-control input-md" required=""/>
+          <div className="form-group">
+            <label className="col-md-4 control-label" >Last Name</label>
+            <div className="col-md-4">
+            <input id="lname" value={this.state.lastName} onChange={this.handleLastNameChange} name="lastName" type="text" placeholder="Doe" className="form-control input-md" required=""/>
 
             </div>
           </div>
@@ -73,19 +83,19 @@ class SignUp extends Component {
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="password">Password</label>
-            <div class="col-md-4">
-              <input id="password" value={this.state.password} onChange={this.handlePasswordChange}name="password" type="password" placeholder="" class="form-control input-md" required=""/>
+          <div className="form-group">
+            <label className="col-md-4 control-label" >Password</label>
+            <div className="col-md-4">
+              <input id="password" value={this.state.password} onChange={this.handlePasswordChange}name="password" type="password" placeholder="" className="form-control input-md" required=""/>
 
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="save"></label>
-            <div class="col-md-8">
-              <button id="save" type="submit" name="save" class="btn btn-success">Register</button>
-              <button id="clear" name="clear" class="btn btn-danger">Reset</button>
+          <div className="form-group">
+            <label className="col-md-4 control-label" ></label>
+            <div className="col-md-8">
+              <button id="save" type="submit" name="save" className="btn btn-success">Register</button>
+              <button id="clear" name="clear" className="btn btn-danger">Reset</button>
             </div>
           </div>
 
