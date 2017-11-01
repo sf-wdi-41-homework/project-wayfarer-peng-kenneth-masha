@@ -33,7 +33,9 @@ class Home extends Component {
       }).then(res => {
      console.log('res is ', res);
      this.setState({isAuthenticated: true, id:res._id});
-   }).catch(err => {console.log(err)});
+   }).catch(err => {
+     document.getElementById('loginError').innerHTML ="";
+     document.getElementById('loginError').append("Invalid Email or Password")});
   }
 
   handleLogout(){
@@ -89,6 +91,7 @@ class Home extends Component {
             </div>
           </div>
           <div className="modal-footer">
+              <div id="loginError"></div>
               <a data-dismiss="modal" className="btn">Close</a>
               <a onClick={this.handleSubmit} value="login" className="btn btn-primary">Log-in</a>
           </div>
