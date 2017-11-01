@@ -70,7 +70,19 @@ app.get('/api/users', controllers.user.index);
 app.post('/signup', function signup(req, res) {
   console.log(`${req.body.username} ${req.body.password}`);
   console.log("kkk: ", req.body)
-  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: Date.now() }), req.body.password,
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+
+  var yyyy = today.getFullYear();
+  if(dd<10){
+      dd='0'+dd;
+  }
+  if(mm<10){
+      mm='0'+mm;
+  }
+  var today = mm+'/'+dd+'/'+yyyy
+  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: today }), req.body.password,
 
     function (err, newUser) {
       if(err){console.log(err)}
