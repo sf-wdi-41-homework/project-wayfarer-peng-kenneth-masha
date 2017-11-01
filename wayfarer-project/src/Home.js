@@ -5,7 +5,6 @@ import {Link} from 'react-router';
 import './home.css';
 import Profile from './Profile'
 
-
 class Home extends Component {
 
   constructor(props) {
@@ -20,11 +19,10 @@ class Home extends Component {
   }
 
   handleSubmit(e){
-    console.log('yay')
-    console.log(this.state.email, this.state.password)
-
+   e.preventDefault();
    let email = this.state.email;
    let password = this.state.password;
+
    axios({
        method: 'post',
        url: `http://localhost:3002/login`,
@@ -35,18 +33,16 @@ class Home extends Component {
       }).then(res => {
      console.log('res is ', res);
      this.setState({isAuthenticated: true, id:res._id});
-   }).catch(err => {console.log("login error: ", err)});
+   }).catch(err => {console.log(err)});
   }
 
   handleLogout(){
     this.setState({isAuthenticated: false, id:''});
   }
   handlePasswordChange(e){
-    console.log(this.state.password)
     this.setState({password: e.target.value});
   }
   handleEmailChange(e){
-    console.log(this.state.email)
     this.setState({email: e.target.value});
   }
 
