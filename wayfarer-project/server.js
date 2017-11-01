@@ -45,7 +45,8 @@ passport.deserializeUser(db.User.deserializeUser());
 app.use(function(req, res, next) {
   global.currentUser = req.user;
   next();
-});
+  });
+
 
 //User auth
 app.get('/', function(req, res){
@@ -55,17 +56,22 @@ app.get('/', function(req, res){
 
 app.get('/api/users', controllers.user.index);
 app.post('/signup', function signup(req, res) {
-  console.log(`${req.body.email} ${req.body.password} ${Date.now()}`);
-  User.register(new User({ email: req.body.email, joinDate: Date.now(), firstName: req.body.firstName, lastName: req.body.lastName}), req.body.password,
+  console.log(`${req.body.username} ${req.body.password}`);
+  console.log("kkk: ", req.body)
+  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: Date.now() }), req.body.password,
+
     function (err, newUser) {
+      if(err){console.log(err)}
       passport.authenticate('local')(req, res, function() {
         res.send(newUser);
       });
     }
   )});
 app.post('/login', passport.authenticate('local'), function (req, res) {
+  console.log("log Hit")
   console.log(JSON.stringify(req.user));
   res.send(req.user);
+
 });
 app.get('/logout', function (req, res) {
   console.log("BEFORE logout", req);

@@ -19,8 +19,8 @@ class SignUp extends Component {
     let password = this.state.password;
     let lastName = this. state.lastName;
     let firstName = this.state.firstName;
-    console.log(this.state.username);
-    axios.post(`http://localhost:3002/signup`,{email: email,password: password})
+    console.log(this.state.email);
+    axios.post(`http://localhost:3002/signup`,{username: email,password: password, lastName: lastName, firstName: firstName})
     .then(res => {
       console.log('res is ', res);
       browserHistory.push('/login');
@@ -64,10 +64,11 @@ class SignUp extends Component {
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="email">Email</label>
-            <div class="col-md-4">
-            <input id="email" value={this.state.email} onChange={this.handleEmailChange}name="email" type="text" placeholder="johndoe@example.com" class="form-control input-md" required=""/>
+
+          <div className="form-group">
+            <label className="col-md-4 control-label" >email</label>
+            <div className="col-md-4">
+            <input id="email" value={this.state.email} onChange={this.handleEmailChange} name="username" type="email" placeholder="johndoe@example.com" className="form-control input-md" required=""/>
 
             </div>
           </div>
