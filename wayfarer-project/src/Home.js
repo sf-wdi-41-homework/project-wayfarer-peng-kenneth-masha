@@ -18,7 +18,7 @@ class Home extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  function setCookie(cname, cvalue, expireDays) {
+ /* function setCookie(cname, cvalue, expireDays) {
         var d = new Date();
         d.setTime(d.getTime() + (expireDays * 24 * 60 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
@@ -44,7 +44,7 @@ class Home extends Component {
   function killCookie() {
         setCookie("FITNESS_GURU_ID", "", 0);
         console.log("killed cookie: ", getCookie("FITNESS_GURU_ID"));
-    }
+    }*/
 
   handleSubmit(e){
    e.preventDefault();
@@ -158,14 +158,29 @@ class Home extends Component {
 
   <div className="topics container">
     <div className="row">
-      <div className="col-md-4 topicOne">
-            Topic 1
+      <div className="col-md-4 topic">
+        <h3>Topic 1</h3>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod eget turpis quis rhoncus. 
+        Aenean ullamcorper semper ornare. Nam pretium leo orci, id vestibulum est ultrices quis. Sed fringilla 
+        nunc vel nisi pulvinar, id mattis lorem feugiat. Ut auctor, arcu a dapibus rhoncus, elit quam commodo augue, 
+        eleifend tincidunt neque velit et ante. Maecenas eu porta augue. Quisque odio lectus, placerat sit amet feugiat a, 
+        consectetur a arcu. Morbi dictum posuere lorem, consequat ultrices neque tincidunt et. Nam ultrices tempus molestie.</p>
       </div>
-      <div className="col-md-4 topicTwo">
-            Topic 2
+      <div className="col-md-4 topic">
+        <h3>Topic 2</h3>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod eget turpis quis rhoncus. 
+        Aenean ullamcorper semper ornare. Nam pretium leo orci, id vestibulum est ultrices quis. Sed fringilla 
+        nunc vel nisi pulvinar, id mattis lorem feugiat. Ut auctor, arcu a dapibus rhoncus, elit quam commodo augue, 
+        eleifend tincidunt neque velit et ante. Maecenas eu porta augue. Quisque odio lectus, placerat sit amet feugiat a, 
+        consectetur a arcu. Morbi dictum posuere lorem, consequat ultrices neque tincidunt et. Nam ultrices tempus molestie.</p>
       </div>
-      <div className="col-md-4 topicThree">
-            Topic 3
+      <div className="col-md-4 topic">
+        <h3>Topic 3</h3>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod eget turpis quis rhoncus. 
+        Aenean ullamcorper semper ornare. Nam pretium leo orci, id vestibulum est ultrices quis. Sed fringilla 
+        nunc vel nisi pulvinar, id mattis lorem feugiat. Ut auctor, arcu a dapibus rhoncus, elit quam commodo augue, 
+        eleifend tincidunt neque velit et ante. Maecenas eu porta augue. Quisque odio lectus, placerat sit amet feugiat a, 
+        consectetur a arcu. Morbi dictum posuere lorem, consequat ultrices neque tincidunt et. Nam ultrices tempus molestie.</p>
       </div>
     </div>
   </div>
