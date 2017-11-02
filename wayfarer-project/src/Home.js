@@ -189,6 +189,7 @@ class Home extends Component {
         </div>
 
 
+
   <div className="topics container"> 
       <div className="row">     
        <div className="col-md-4 topic">
@@ -200,6 +201,7 @@ class Home extends Component {
         <div className="col-md-4 topic">
         </div>
       </div>
+
     <div className="row">
       <div className="col-md-4 topic">
           <h3>WANDERLUST</h3>              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
