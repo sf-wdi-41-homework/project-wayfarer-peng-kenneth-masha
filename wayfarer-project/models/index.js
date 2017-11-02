@@ -3,4 +3,4 @@ mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/react-project"
 
 
 module.exports.User = require('./user');
-module.exports.Port = require('./post');
+module.exports.Post = require('./post');

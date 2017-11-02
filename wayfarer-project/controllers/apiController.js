@@ -20,11 +20,15 @@ function createPost(req, res) {
     location: req.body.location,
     title: req.body.title,
     details: req.body.details,
-    img: req.user.img
+    img: ""
   });
 
   newPost.save(function(err, yay){
     if(err){return console.log(err)};
     res.json(yay)
   });
+}
+
+module.exports = {
+  createPost: createPost,
 }
