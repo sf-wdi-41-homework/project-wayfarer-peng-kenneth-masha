@@ -22,6 +22,7 @@ class CitiesPage extends Component {
     let title = this.state.title;
     let details = this.state.details;
     let id = this.props.id
+    console.log(id)
 
     axios({
       method: 'POST',
@@ -36,6 +37,7 @@ class CitiesPage extends Component {
   }
 
   location(e){
+    console.log(this.props.id)
     console.log(this.state.location)
     this.setState({location: e.target.value})
   }
