@@ -5,12 +5,41 @@ import {Link} from 'react-router';
 import './profile.css';
 import ShowPage from './ShowPage.js';
 import Avatar from './Avatar';
+import EditCity from './Components/EditCity'
 
 
 class Profile extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentCity: "",
+    };
+    this.cityEdit.bind(this)
+  };
   componentDidMount(){
   this.props.joinDate(this.props.id)
   }
+
+  cityEdit(){
+
+    axios({
+        method: 'put',
+        url: `http://localhost:3002/api/users/` + this.props.id,
+        data: {
+          currentCity: this.state.currentCity
+        },
+       }).then(res => {
+         console.log(res)
+    }).catch(err => {
+      console.log(err)
+   })
+  }
+
+  handleCityChange(e){
+    this.setState({currentCity: e.target.value});
+  }
+
 
 
   render() {
@@ -37,25 +66,24 @@ class Profile extends Component {
               <Avatar id={this.props.id}/>
             </div>
             <div className="col-md-6 boxTwo">
-              <div className="row">
               <div className="col-md-12 nestedBox1">
-                First Name: {this.props.firstName}
-                <br/>Last Name: {this.props.lastName}
+                Welcome! {this.props.firstName.charAt(0).toUpperCase() + this.props.firstName.slice(1)} {this.props.lastName.charAt(0).toUpperCase() + this.props.lastName.slice(1)}
               </div>
-              </div>
-              <div className="row">
               <div className="col-md-12 nestedBox2">
-                Current City
+              Current City <a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
+              <span className="	glyphicon glyphicon-pencil"/>
+              </a>
+
+              <EditCity cityEdit={this.cityEdit.bind(this)}
+              handleCityChange ={this.handleCityChange.bind(this)}/>
+
               </div>
-              </div>
-              <div className="row">
               <div className="col-md-12 nestedBox3">
                 Joined Date:
                 <br/>{this.props.date}
               </div>
               </div>
             </div>
-          </div>
           <div className="row">
             <div className="col-md-12" id ="postArea">
               <h2>Post 1:</h2><p>San Francisco </p>

@@ -1,7 +1,12 @@
 #postArea{
 background-color: rgba(47, 67, 87, 0.2);
-text-align: left; 
+text-align: left;
 
+}
+
+.cityEdit {
+float: right;
+margin-top: 2px;
 }
 
 .glyphicon glyphicon-search{
