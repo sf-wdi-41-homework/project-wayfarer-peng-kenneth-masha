@@ -160,8 +160,8 @@ class Home extends Component {
 
         <SignUp />
 
-        <div className="myCarousel">
-            <div id="myCarousel" style={{height: 80 + 'vh', width:100+'%'}}className="carousel slide" data-ride="carousel">
+        <div className="carouselCountainer">
+            <div id="myCarousel" style={{height: 60 + 'vh', width:100+'%'}}className="carousel slide" data-ride="carousel">
 
                 <ol className="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
@@ -170,13 +170,13 @@ class Home extends Component {
                 </ol>
                 <div className="carousel-inner">
                     <div className="item active imageOne">
-                        <img  style={{height: 80 + 'vh', width:100+'%'}} src="https://s-media-cache-ak0.pinimg.com/originals/78/a0/3f/78a03f2e10129bac5cda0aaa96033bc2.jpg" alt="Compass"/>
+                        <img  style={{height: 60 + 'vh', width:100+'%'}} src="https://2p26rc2pcm8t16abux1x69apy7w-wpengine.netdna-ssl.com/wp-content/uploads/2015/01/lambent-london.jpg" alt="Compass"/>
                     </div>
                     <div className="item imageTwo">
-                        <img style={{height: 80 + 'vh', width:100+'%'}} src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/Travel-wallpapers.jpg" alt="Second Slide"/>
+                        <img style={{height: 60 + 'vh', width:100+'%'}} src="https://hdwallsource.com/img/2014/4/san-francisco-wallpaper-41496-42464-hd-wallpapers.jpg" alt="Second Slide"/>
                     </div>
                     <div className="item imageThree">
-                        <img style={{height: 80 + 'vh', width:100+'%'}} src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/fantasy-street-abstract-nature-night-city-landscape-dream-wallpapers-wallpaper-wallwuzz-hd-wallpaper-10282.jpg" alt="Third Slide"/>
+                        <img style={{height: 60 + 'vh', width:100+'%'}} src="https://d30bjm1vsa9rrn.cloudfront.net/files/media/International_Media_Centre/Images/SOH/Hi_Res/Sydney_Opera_House_1.jpg" alt="Third Slide"/>
                     </div>
                 </div>
                 <a className="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -188,16 +188,36 @@ class Home extends Component {
             </div>
         </div>
 
-  <div className="topics container">
+
+  <div className="topics container"> 
+      <div className="row">     
+       <div className="col-md-4 topic">
+              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+      </div>
+        <div className="col-md-4 topicTitle">
+         <h2 class = "Wayfarer"> WAYFARER IS...</h2>
+         </div>
+        <div className="col-md-4 topic">
+        </div>
+      </div>
     <div className="row">
-      <div className="col-md-4 topicOne">
-            Topic 1
+      <div className="col-md-4 topic">
+          <h3>WANDERLUST</h3>              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+           <p> Get away from your everyday.Wander, explore, discover your desire to travel. Meet knew people and experience
+           new experiences. Make each day a new horizon.</p>
+
       </div>
-      <div className="col-md-4 topicTwo">
-            Topic 2
+      <div className="col-md-4 topic">
+           <h3>ADVENTURE</h3>
+           <p> Adventure is out there.Sometimes, you can find yourself in the middle.
+           of nowhere and sometimes in the middle of nowhere is where is where your find yourself.</p>
       </div>
-      <div className="col-md-4 topicThree">
-            Topic 3
+      <div className="col-md-4 topic">
+           <h3>COMMUNITY</h3>
+           <p>Share tips and tricks of travel.
+        Share your thoughts about your favorite locations around the world
+           with people who are also looking for their next adventure.</p>
+
       </div>
     </div>
   </div>
