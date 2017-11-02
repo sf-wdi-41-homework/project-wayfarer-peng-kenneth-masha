@@ -17,7 +17,6 @@ class CitiesPage extends Component {
   }
 
   render(){
-    console.log("test", this.state.authenticate)
     if(this.props.authenticate){
     return(
       <div>
