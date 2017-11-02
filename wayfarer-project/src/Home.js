@@ -10,7 +10,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email:'', password: '', id:'', isAuthenticated: false, joinDate: '',
+      email:'', password: '', id:'', isAuthenticated: false, joinDate: '', firstName:'', lastName:'',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -52,7 +52,7 @@ class Home extends Component {
       url: `http://localhost:3002/api/users/` + id,
     }).then(res=>{
       console.log(res.data.joinDate)
-       this.setState({joinDate: res.data.joinDate})
+       this.setState({joinDate: res.data.joinDate, firstName: res.data.firstName, lastName: res.data.lastName})
     }).catch(err =>
     console.log("line 57", err))
   }
@@ -217,7 +217,7 @@ class Home extends Component {
   }else {
     console.log('loged-in')
     return(
-      <Profile id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)} date={this.state.joinDate}/>
+      <Profile firstName={this.state.firstName} lastName={this.state.lastName} id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)} date={this.state.joinDate}/>
     )
   }
 }
