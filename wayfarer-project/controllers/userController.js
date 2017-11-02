@@ -21,9 +21,17 @@ function update (req, res){
     });
   };
 
+function joinDate(req, res){
+  db.User.findOne({_id: req.params.id}, function(err, success){
+    console.log(success)
+    res.json(success)
+  })
+}
+
 
 
 module.exports = {
   index: index,
-  update: update
+  update: update,
+  joinDate: joinDate,
 }

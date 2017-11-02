@@ -8,11 +8,13 @@ import Avatar from './Avatar';
 
 
 class Profile extends Component {
-
-
+  componentDidMount(){
+  this.props.joinDate(this.props.id)
+  }
 
 
   render() {
+
     return (
         <div className="profile">
           <nav className="navbar navbar-default" role="navigation">
@@ -47,7 +49,8 @@ class Profile extends Component {
               </div>
               <div className="row">
               <div className="col-md-12 nestedBox3">
-                Joined Date
+                Joined Date:
+                <br/>{this.props.date}
               </div>
               </div>
             </div>
