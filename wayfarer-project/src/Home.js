@@ -160,7 +160,6 @@ class Home extends Component {
 
         <SignUp />
 
-
         <div className="myCarousel">
             <div id="myCarousel" style={{height: 80 + 'vh', width:100+'%'}}className="carousel slide" data-ride="carousel">
 

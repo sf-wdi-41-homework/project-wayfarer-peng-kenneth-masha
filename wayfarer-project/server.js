@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 app.use(cookieParser());
 app.use(session({
-  secret: 'spinachsecret007', // change this!
+  secret: 'dasdk32jkhdh923dh9$@$*', 
   resave: false,
   saveUninitialized: false
 }));
@@ -85,7 +85,8 @@ app.post('/signup', function signup(req, res) {
   }
   var today = mm+'/'+dd+'/'+yyyy
 
-  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: today, img: "", currentCity:"" }), req.body.password,
+
+  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: today, img: ``, currentCity:"" }), req.body.password,
 
     function (err, newUser) {
       if(err){console.log(err)}
