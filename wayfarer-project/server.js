@@ -67,6 +67,8 @@ app.get('/', function(req, res){
 })
 
 app.get('/api/users', controllers.user.index);
+app.put('/api/users/:id', controllers.user.update)
+app.get('/api/users/:id', controllers.user.joinDate)
 app.post('/signup', function signup(req, res) {
   console.log(`${req.body.username} ${req.body.password}`);
   console.log("kkk: ", req.body)
@@ -82,7 +84,8 @@ app.post('/signup', function signup(req, res) {
       mm='0'+mm;
   }
   var today = mm+'/'+dd+'/'+yyyy
-  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: today }), req.body.password,
+
+  User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: today, img: "", currentCity:"" }), req.body.password,
 
     function (err, newUser) {
       if(err){console.log(err)}
@@ -92,6 +95,7 @@ app.post('/signup', function signup(req, res) {
     }
   )});
 app.post('/login', passport.authenticate('local'), function (req, res) {
+  console.log(req)
   console.log("log Hit")
   console.log(JSON.stringify(req.user));
   res.send(req.user);

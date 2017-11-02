@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Avatar.css';
+import axios from 'axios';
+
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -10,8 +12,20 @@ class Avatar extends React.Component {
   _handleSubmit(e) {
     e.preventDefault();
     // TODO: do something with -> this.state.file
-    console.log('handle uploading-', this.state.file);
+    this.state.file
+    console.log(this.state.file);
+    axios({
+        method: 'put',
+        url: `http://localhost:3002/api/users/` + this.props.id,
+        data: "",
+       }).then(res => {
+         console.log(res)
+    }).catch(err => {
+      console.log(err)
+   })
   }
+
+
 
   _handleImageChange(e) {
     e.preventDefault();
@@ -40,21 +54,23 @@ class Avatar extends React.Component {
 
     return (
       <div className="previewComponent">
+      <form onSubmit={this._handleSubmit}>
         <div className="imgPreview" onSubmit={(e)=>this._handleSubmit(e)}>
           {$imagePreview}
-          <input className="fileInput" 
-            type="file" 
+          <input className="fileInput"
+            type="file"
+            name="avatar"
             onChange={(e)=>this._handleImageChange(e)} />
-          <button className="submitButton" 
-            type="submit" 
+          <button className="submitButton"
+            type="submit"
             onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
 
         </div>
-        
+      </form>
       </div>
     )
   }
 }
-  
+
 
 export default Avatar;
