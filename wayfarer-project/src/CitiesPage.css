@@ -1,0 +1,13 @@
+.addPosts{
+  float:right;
+}
+
+.cities img{
+  height: 150px;
+  width: 150px;
+}
+
+.cities h3{
+  margin: auto;
+  text-align: center;
+}
