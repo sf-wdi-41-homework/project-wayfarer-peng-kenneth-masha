@@ -8,16 +8,47 @@ import ProfileIcon from './ProfileIcon.js';
 
 class CitiesPage extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      location:"San Francisco", title:"", details:""
+    };
+  };
+
+
   createPost(e){
     e.preventDefault()
+    let location = this.state.location;
+    let title = this.state.title;
+    let details = this.state.details;
+    let id = this.props.id
+
     axios({
       method: 'POST',
-      url: 'http://localhost:3002/signup',
-    })
+      url: 'http://localhost:3002/api/post',
+      data: {
+        userId: id,
+        location: location,
+        title: title,
+        details: details,
+      }
+    }).then(yay=>{console.log(yay)}).catch(err=>{console.log(`CitiesPage 29`, err)})
   }
 
+  location(e){
+    console.log(this.state.location)
+    this.setState({location: e.target.value})
+  }
+
+  titleChange(e){
+    this.setState({title: e.target.value})
+  }
+  detailsChange(e){
+    this.setState({details: e.target.value})
+  }
+
+
   render(){
-    console.log("test", this.state.authenticate)
     if(this.props.authenticate){
     return(
       <div>
@@ -102,10 +133,10 @@ class CitiesPage extends Component {
                         <h4 className="modal-title">Create A New Post</h4>
                       </div>
                       <div className="modal-body">
-                        <form>
+                        <form onSubmit={this.createPost.bind(this)}>
                           <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">City</label>
-                            <select className="form-control" id="exampleFormControlSelect1">
+                            <select onChange={this.location.bind(this)} value={this.state.location} className="form-control" id="exampleFormControlSelect1">
                               <option>San Francisco</option>
                               <option>London</option>
                               <option>Sydney</option>
@@ -115,11 +146,11 @@ class CitiesPage extends Component {
                           </div>
                           <div className="form-group">
                             <label htmlFor="title">Title</label>
-                            <input type="text" className="form-control" id="postTitle" placeholder="Enter Post Title Here"/>
+                            <input onChange={this.titleChange.bind(this)} value={this.state.title} type="text" className="form-control" id="postTitle" placeholder="Enter Post Title Here"/>
                             </div>
                             <div className="form-group">
                               <label htmlFor="post">Share Your Experience:</label>
-                              <textarea className="form-control" id="postArea" rows="3"></textarea>
+                              <textarea onChange={this.detailsChange.bind(this)} value={this.state.details} className="form-control" id="postArea" rows="3"></textarea>
                             </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </form>

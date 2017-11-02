@@ -62,7 +62,7 @@ app.use(function (req, res, next) {
 
 //User auth
 app.get('/', function(req, res){
-  console.log("testing 123")
+  console.log(req.user)
   res.send('hi')
 })
 
@@ -111,7 +111,19 @@ app.get('/logout', function (req, res) {
 
 ///Post CRUD
 
-app.post('/api/post' 
+app.post('/api/post', function(req, res){
+  let newPost = new Post({
+    userId:req.body.id,
+    location: req.body.location,
+    title: req.body.title,
+    details: req.body.details,
+    img: ""
+  })
+
+  newPost.save(function(err, yay){
+    if(err){return console.log(err)};
+    res.json(yay)
+  })});
 
 
 var port = process.env.API_PORT || 3002;

@@ -39,6 +39,7 @@ class SignUp extends Component {
     })
   }
   handleEmailChange(e){
+    console.log(this.state.email)
     this.setState({email: e.target.value});
   }
   handlePasswordChange(e){
