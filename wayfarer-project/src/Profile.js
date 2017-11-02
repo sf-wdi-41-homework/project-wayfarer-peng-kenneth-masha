@@ -59,7 +59,7 @@ class Profile extends Component {
             </div>
             <div className="col-md-6 boxTwo">
               <div className="col-md-12 nestedBox1">
-                Welcome! {this.props.firstName.charAt(0).toUpperCase() + this.props.firstName.slice(1)} {this.props.lastName.charAt(0).toUpperCase() + this.props.lastName.slice(1)}
+                <span>Welcome!</span> {this.props.firstName.charAt(0).toUpperCase() + this.props.firstName.slice(1)} {this.props.lastName.charAt(0).toUpperCase() + this.props.lastName.slice(1)}
               </div>
               <div className="col-md-12 nestedBox2">
               Current City <a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
@@ -72,16 +72,16 @@ class Profile extends Component {
 
               </div>
               <div className="col-md-12 nestedBox3">
-                Joined Date:
+                <span>Joined Date:</span>
                 <br/>{this.props.date}
               </div>
               </div>
             </div>
           <div className="row">
-            <div className="col-md-12" id ="postArea">
-              <h2>Post 1:</h2><p>San Francisco </p>
-              <h2>Post 2:</h2><p>Seattle </p>
-              <h2>Post 3:</h2><p>New York </p>
+            <div className="postArea" id ="postArea">
+              <h3>Post 1:</h3><p>San Francisco </p>
+              <h3>Post 2:</h3><p>Seattle </p>
+              <h3>Post 3:</h3><p>New York </p>
             </div>
           </div>
         </div>
