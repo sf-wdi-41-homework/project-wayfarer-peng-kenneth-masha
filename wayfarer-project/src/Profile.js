@@ -49,7 +49,8 @@ class Profile extends Component {
           <nav className="navbar navbar-default" role="navigation">
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-left">
-              <li><a href="#home"> Home </a></li>
+              <li><Link to="/"> Profile </Link></li>
+              <li><Link to={{pathname: '/cities', state:{authenticate: true}}}> City Posts </Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right text-center">
             <li><a  onClick={this.props.logout} href="#"><span className="glyphicon glyphicon-log-out"/> Logout</a></li>
@@ -61,8 +62,7 @@ class Profile extends Component {
         <div className="topics container">
           <div className="row">
             <div className="col-md-6 boxOne">
-     
-=======
+
               <Avatar id={this.props.id}/>
             </div>
             <div className="col-md-6 boxTwo">
@@ -92,7 +92,6 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-          <ShowPage />
       </div>
       )
     }

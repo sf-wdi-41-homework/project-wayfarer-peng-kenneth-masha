@@ -143,7 +143,19 @@ class Home extends Component {
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-left">
               <li><a href="/">Home</a></li>
+              <li className = "dropdown">
+                <a href = "#" className = "dropdown-toggle" data-toggle = "dropdown">
+                  Cities<b className = "caret"></b>
+                </a>
+              <ul className = "dropdown-menu">
+               <li><a href = "./cities/sanfrancisco">San Francisco</a></li>
+               <li><a href = "./cities/newyork">New York</a></li>
+               <li><a href = "./cities/london">London</a></li>
+               <li><a href = "./cities/sydney">Sydney</a></li>
+               <li><a href = "./cities/seattle">Seattle</a></li>
             </ul>
+          </li>
+        </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><a href="#myModal" data-toggle="modal"  data-target="#login">
               <span className="glyphicon glyphicon-log-in"/> Login
@@ -151,10 +163,9 @@ class Home extends Component {
               <li><a href="#myModal" data-toggle="modal" data-target="#signup">
               <span className="glyphicon glyphicon-user"/> Sign-Up
               </a></li>
-            </ul>
+          </ul>
           </div>
         </nav>
-
         <Login handlePasswordChange ={this.handlePasswordChange} handleEmailChange={this.handleEmailChange}
         handleSubmit={this.handleSubmit}/>
 
