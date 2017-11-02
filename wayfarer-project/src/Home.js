@@ -4,6 +4,8 @@ import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import './home.css';
 import Profile from './Profile'
+import Login from './Components/Login'
+import SignUp from './Components/Signup'
 
 class Home extends Component {
 
@@ -88,7 +90,7 @@ class Home extends Component {
     }
 
 
-
+/////login
   handleSubmit(e){
    e.preventDefault();
    let email = this.state.email;
@@ -112,10 +114,6 @@ class Home extends Component {
      document.getElementById('loginError').append("Invalid Email or Password")});
   }
 
-  handleLogout(){
-    this.setState({isAuthenticated: false, id:''});
-    this.killCookie()
-  }
   handlePasswordChange(e){
     this.setState({password: e.target.value});
   }
@@ -123,6 +121,15 @@ class Home extends Component {
     this.setState({email: e.target.value});
   }
 
+
+///logout
+  handleLogout(){
+    this.setState({isAuthenticated: false, id:''});
+    this.killCookie()
+  }
+
+
+///signup
 
 
 
@@ -133,46 +140,29 @@ class Home extends Component {
       <div className="home">
 
         <nav className="navbar navbar-default" role="navigation">
-  <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul className="nav navbar-nav navbar-left">
-      <li><a href="#home">Home</a></li>
-    </ul>
-    <ul className="nav navbar-nav navbar-right">
-      <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
-    </ul>
-  </div>
-</nav>
+          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul className="nav navbar-nav navbar-left">
+              <li><a href="/">Home</a></li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li><a href="#myModal" data-toggle="modal"  data-target="#login">
+              <span className="glyphicon glyphicon-log-in"/> Login
+              </a></li>
+              <li><a href="#myModal" data-toggle="modal" data-target="#signup">
+              <span className="glyphicon glyphicon-user"/> Sign-Up
+              </a></li>
+            </ul>
+          </div>
+        </nav>
 
-<div className="modal fade" id="myModal">
-	<div className="modal-dialog">
-      <div className="modal-content">
-        <form >
-          <div className="modal-header">
-            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 className="modal-title">Log-in</h4>
-          </div>
-          <div className="modal-body">
-            <div className="form-group">
-              <label htmlFor="exampleInputemail1" >email address</label>
-              <input className="form-control"  value= {this.state.email} onChange={this.handleEmailChange} name="username" id="exampleInputemail1" placeholder="Enter email" type="email"/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1" >Password</label>
-              <input className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" id="exampleInputPassword1" placeholder="Password" type="password"/>
-            </div>
-          </div>
-          <div className="modal-footer">
-              <div id="loginError"></div>
-              <a data-dismiss="modal" className="btn">Close</a>
-              <a onClick={this.handleSubmit} data-dismiss="modal" value="login" className="btn btn-primary">Log-in</a>
-          </div>
-        </form>
-      </div>
-    </div>
-</div>
+        <Login handlePasswordChange ={this.handlePasswordChange} handleEmailChange={this.handleEmailChange}
+        handleSubmit={this.handleSubmit}/>
+
+        <SignUp />
+
 
         <div className="myCarousel">
-            <div id="myCarousel" className="carousel slide" data-ride="carousel">
+            <div id="myCarousel" style={{height: 80 + 'vh', width:100+'%'}}className="carousel slide" data-ride="carousel">
 
                 <ol className="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
@@ -181,13 +171,13 @@ class Home extends Component {
                 </ol>
                 <div className="carousel-inner">
                     <div className="item active imageOne">
-                        <img src="https://s-media-cache-ak0.pinimg.com/originals/78/a0/3f/78a03f2e10129bac5cda0aaa96033bc2.jpg" alt="Compass"/>
+                        <img  style={{height: 80 + 'vh', width:100+'%'}} src="https://s-media-cache-ak0.pinimg.com/originals/78/a0/3f/78a03f2e10129bac5cda0aaa96033bc2.jpg" alt="Compass"/>
                     </div>
                     <div className="item imageTwo">
-                        <img src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/Travel-wallpapers.jpg" alt="Second Slide"/>
+                        <img style={{height: 80 + 'vh', width:100+'%'}} src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/Travel-wallpapers.jpg" alt="Second Slide"/>
                     </div>
                     <div className="item imageThree">
-                        <img src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/fantasy-street-abstract-nature-night-city-landscape-dream-wallpapers-wallpaper-wallwuzz-hd-wallpaper-10282.jpg" alt="Third Slide"/>
+                        <img style={{height: 80 + 'vh', width:100+'%'}} src="http://tremendouswallpapers.com/wp-content/uploads/2014/12/fantasy-street-abstract-nature-night-city-landscape-dream-wallpapers-wallpaper-wallwuzz-hd-wallpaper-10282.jpg" alt="Third Slide"/>
                     </div>
                 </div>
                 <a className="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -215,9 +205,10 @@ class Home extends Component {
   </div>
     );
   }else {
-    console.log('loged-in')
     return(
-      <Profile firstName={this.state.firstName} lastName={this.state.lastName} id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)} date={this.state.joinDate}/>
+      <Profile firstName={this.state.firstName} lastName={this.state.lastName}
+      id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)}
+      date={this.state.joinDate}/>
     )
   }
 }

@@ -18,17 +18,15 @@ class Profile extends Component {
     return (
         <div className="profile">
           <nav className="navbar navbar-default" role="navigation">
-    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul className="nav navbar-nav navbar-left">
-        <li><a href="#home"> Home </a></li>
-      </ul>
-      <ul className="nav navbar-nav navbar-right text-center">
-        <button type="button" onClick={this.props.logout} className="btn btn-info btn-sm text-center">
-          <span className="glyphicon glyphicon-log-out"></span> Log out
-        </button>
-      </ul>
-    </div>
-  </nav>
+          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul className="nav navbar-nav navbar-left">
+              <li><a href="#home"> Home </a></li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right text-center">
+            <li><a  onClick={this.props.logout} href="#"><span className="glyphicon glyphicon-log-out"/> Logout</a></li>
+            </ul>
+          </div>
+        </nav>
 
 
         <div className="topics container">
