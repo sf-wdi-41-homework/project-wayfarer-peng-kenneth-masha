@@ -54,7 +54,7 @@ class Home extends Component {
       url: `http://localhost:3002/api/users/` + id,
     }).then(res=>{
       console.log(res.data.joinDate)
-       this.setState({joinDate: res.data.joinDate, firstName: res.data.firstName, lastName: res.data.lastName})
+       this.setState({joinDate: res.data.joinDate, firstName: res.data.firstName, lastName: res.data.lastName, currentCity: res.data.currentCity})
     }).catch(err =>
     console.log("line 57", err))
   }
@@ -148,6 +148,10 @@ class Home extends Component {
         this.setState({currentCity: e.target.value});
       }
 
+      createPost(e){
+        e.preventDefault();
+
+      }
 
 
 
@@ -258,7 +262,8 @@ class Home extends Component {
       <Profile firstName={this.state.firstName} lastName={this.state.lastName}
       id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)}
       date={this.state.joinDate} cityEdit={this.cityEdit.bind(this)}
-      handleCityChange ={this.handleCityChange.bind(this)}/>
+      handleCityChange ={this.handleCityChange.bind(this)}
+      authenticate={this.state.isAuthenticated} currentCity={this.state.currentCity}/>
     )
   }
 }

@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 app.use(cookieParser());
 app.use(session({
-  secret: 'dasdk32jkhdh923dh9$@$*', 
+  secret: 'dasdk32jkhdh923dh9$@$*',
   resave: false,
   saveUninitialized: false
 }));
@@ -108,6 +108,10 @@ app.get('/logout', function (req, res) {
   res.send(req);
   console.log("AFTER logout", req);
 });
+
+///Post CRUD
+
+app.post('/api/post' 
 
 
 var port = process.env.API_PORT || 3002;
