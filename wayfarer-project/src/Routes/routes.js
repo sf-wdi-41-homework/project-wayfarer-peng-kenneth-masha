@@ -12,7 +12,6 @@ var routes = (
 		<Route path ='/' component={Home} />
     <Route path='/signup' component={SignUp} />
 		<Route path="/profile" component={Profile}/>
-		<Route path="/cities" component={CitiesPage}/>
 		<Route path="/sanfrancisco" component={SanFrancisco}/>
 	</div>
 )

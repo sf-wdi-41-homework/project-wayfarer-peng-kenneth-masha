@@ -7,28 +7,26 @@ import ProfileIcon from './ProfileIcon.js';
 
 
 class CitiesPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      authenticate: false,
-    };
+
+  createPost(e){
+    e.preventDefault()
+    axios({
+      method: 'POST',
+      url: 'http://localhost:3002/signup',
+    })
   }
-
-  
-
-
 
   render(){
     console.log("test", this.state.authenticate)
-    // if(this.state.authenticate === true){
+    if(this.props.authenticate){
     return(
       <div>
       <div className="profile">
-        <nav className="navbar navbar-default" role="navigation">
+      <nav className="navbar navbar-default" role="navigation">
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-left">
-            <li><Link to="/" > Profile </Link></li>
-            <li><Link to="/cities"> City Posts </Link></li>
+            <li><a href="#" onClick={this.props.clickProfile}> Profile </a></li>
+            <li><a href="#" onClick={this.props.clickCity}> City Posts </a></li>
           </ul>
           <ul className="nav navbar-nav navbar-right text-center">
           <li><a  onClick={this.props.logout} href="#"><span className="glyphicon glyphicon-log-out"/> Logout</a></li>
@@ -134,12 +132,11 @@ class CitiesPage extends Component {
         </div>
       </div>
     )
-  // }
-  //   else{
-  //     <div>
-  //     ERROR YOU ARE NOT LOGIN!!!
-  //     </div>
-  //   }
+  }
+    else{
+      <div>
+      </div>
+    }
   }
 };
 
