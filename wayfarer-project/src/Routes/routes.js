@@ -5,7 +5,7 @@ import Home from '../Home';
 import SignUp from '../Components/Signup';
 import Profile from '../Profile';
 import CitiesPage from '../CitiesPage';
-
+import SanFrancisco from '../SanFrancisco';
 
 var routes = (
 	<div>
@@ -13,6 +13,7 @@ var routes = (
     <Route path='/signup' component={SignUp} />
 		<Route path="/profile" component={Profile}/>
 		<Route path="/cities" component={CitiesPage}/>
+		<Route path="/sanfrancisco" component={SanFrancisco}/>
 	</div>
 )
 
