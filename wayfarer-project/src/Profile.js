@@ -32,6 +32,8 @@ class Profile extends Component {
         <div className="topics container">
           <div className="row">
             <div className="col-md-6 boxOne">
+     
+=======
               <Avatar id={this.props.id}/>
             </div>
             <div className="col-md-6 boxTwo">

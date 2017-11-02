@@ -1,15 +1,19 @@
-.carousel{
+.myCarousel{
     background: #2f4357;
     margin-top: 20px;
+    height:50%;
+    width: 70%;	
+    margin-left: 180px;
+
 }
 .carousel .item{
-    min-height: 280px;
+
 }
 .carousel .item img{
-    margin: 0 auto;
+
 }
 .myCarousel{
-	margin: 20px;
+
 }
 
 .topic{
