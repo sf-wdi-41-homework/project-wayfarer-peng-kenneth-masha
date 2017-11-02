@@ -203,7 +203,7 @@ class Home extends Component {
     <div className="row">
       <div className="col-md-4 topic">
           <h3>WANDERLUST</h3>              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
-           <p> Get away from your everyday. Wander, explore, discover your desire to travel. Meet knew people and experience
+           <p> Get away from your everyday. Wander, explore, discover your desire to travel. Meet new people and experience
            new experiences. Make each day a new horizon.</p>
 
       </div>
