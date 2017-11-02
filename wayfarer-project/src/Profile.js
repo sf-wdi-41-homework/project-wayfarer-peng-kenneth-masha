@@ -70,6 +70,8 @@ class Profile extends Component {
           <div className="row">
             <div className="col-md-6 boxOne">
               <Avatar/>
+
+              
             </div>
             <div className="col-md-6 boxTwo">
               <div className="row">
