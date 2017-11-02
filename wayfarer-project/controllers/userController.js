@@ -7,7 +7,23 @@ function index(req,res) {
   });
 };
 
+function update (req, res){
+  db.User.findOne({_id:req.params.id}, function(err,success){
+    console.log(success)
+    success.img=req.body;
+    if(err){return}
+    success.save(function(err, update){
+        if(err){return}
+        console.log(update)
+        res.json(update);
+      })
+
+    });
+  };
+
+
 
 module.exports = {
   index: index,
+  update: update
 }

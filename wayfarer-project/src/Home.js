@@ -16,16 +16,46 @@ class Home extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+  };
+
+  cookieLogIn(){
+   let userCookie = this.getCookie("login");
+   let loginArray = userCookie.split(',');
+   console.log("cookieLogIn: ", loginArray);
+
+    axios({
+     method: 'POST',
+     url: `http://localhost:3002/login`,
+     data: {
+       username: loginArray[0],
+       password: loginArray[1]
+     },
+   })
+   .then(res => {
+     console.log('res is ', res);
+     this.setState({isAuthenticated: true, id:res._id, username:res.username});
+       console.log("got an cookie!!!log in!!")
+       console.log("hello peng...ball is in your court...")
+   }, err => {
+     console.log('oops!');
+     console.log(err);
+   });
   }
 
- /* function setCookie(cname, cvalue, expireDays) {
+  componentDidMount(){
+    this.cookieLogIn()
+  }
+
+
+
+  setCookie(cname, cvalue, expireHour) {
         var d = new Date();
-        d.setTime(d.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+        d.setTime(d.getTime() + (expireHour * 60 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
-  function getCookie(cname) {
+  getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
         var ca = decodedCookie.split(';');
@@ -41,10 +71,12 @@ class Home extends Component {
         return "";
   }
 
-  function killCookie() {
-        setCookie("FITNESS_GURU_ID", "", 0);
-        console.log("killed cookie: ", getCookie("FITNESS_GURU_ID"));
-    }*/
+  killCookie() {
+        this.setCookie("login", "", 0);
+        console.log("killed cookie: ", this.getCookie("User"));
+    }
+
+
 
   handleSubmit(e){
    e.preventDefault();
@@ -60,7 +92,9 @@ class Home extends Component {
        },
       }).then(res => {
      console.log('res is ', res);
-     this.setState({isAuthenticated: true, id:res._id});
+     console.log(this.state.isAuthenticated)
+     this.setState({isAuthenticated:true, id:res.data._id});
+     this.setCookie('login', `${email},${password}`, 0.5)
    }).catch(err => {
      document.getElementById('loginError').innerHTML ="";
      document.getElementById('loginError').append("Invalid Email or Password")});
@@ -68,6 +102,7 @@ class Home extends Component {
 
   handleLogout(){
     this.setState({isAuthenticated: false, id:''});
+    this.killCookie()
   }
   handlePasswordChange(e){
     this.setState({password: e.target.value});
@@ -76,11 +111,7 @@ class Home extends Component {
     this.setState({email: e.target.value});
   }
 
-  getInitialState(){
-    return {
-      isAuthenticated : false
-    }
-  }
+
 
 
 
@@ -121,7 +152,7 @@ class Home extends Component {
           <div className="modal-footer">
               <div id="loginError"></div>
               <a data-dismiss="modal" className="btn">Close</a>
-              <a onClick={this.handleSubmit} value="login" className="btn btn-primary">Log-in</a>
+              <a onClick={this.handleSubmit} data-dismiss="modal" value="login" className="btn btn-primary">Log-in</a>
           </div>
         </form>
       </div>
@@ -158,29 +189,14 @@ class Home extends Component {
 
   <div className="topics container">
     <div className="row">
-      <div className="col-md-4 topic">
-        <h3>Topic 1</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod eget turpis quis rhoncus. 
-        Aenean ullamcorper semper ornare. Nam pretium leo orci, id vestibulum est ultrices quis. Sed fringilla 
-        nunc vel nisi pulvinar, id mattis lorem feugiat. Ut auctor, arcu a dapibus rhoncus, elit quam commodo augue, 
-        eleifend tincidunt neque velit et ante. Maecenas eu porta augue. Quisque odio lectus, placerat sit amet feugiat a, 
-        consectetur a arcu. Morbi dictum posuere lorem, consequat ultrices neque tincidunt et. Nam ultrices tempus molestie.</p>
+      <div className="col-md-4 topicOne">
+            Topic 1
       </div>
-      <div className="col-md-4 topic">
-        <h3>Topic 2</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod eget turpis quis rhoncus. 
-        Aenean ullamcorper semper ornare. Nam pretium leo orci, id vestibulum est ultrices quis. Sed fringilla 
-        nunc vel nisi pulvinar, id mattis lorem feugiat. Ut auctor, arcu a dapibus rhoncus, elit quam commodo augue, 
-        eleifend tincidunt neque velit et ante. Maecenas eu porta augue. Quisque odio lectus, placerat sit amet feugiat a, 
-        consectetur a arcu. Morbi dictum posuere lorem, consequat ultrices neque tincidunt et. Nam ultrices tempus molestie.</p>
+      <div className="col-md-4 topicTwo">
+            Topic 2
       </div>
-      <div className="col-md-4 topic">
-        <h3>Topic 3</h3>
-       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod eget turpis quis rhoncus. 
-        Aenean ullamcorper semper ornare. Nam pretium leo orci, id vestibulum est ultrices quis. Sed fringilla 
-        nunc vel nisi pulvinar, id mattis lorem feugiat. Ut auctor, arcu a dapibus rhoncus, elit quam commodo augue, 
-        eleifend tincidunt neque velit et ante. Maecenas eu porta augue. Quisque odio lectus, placerat sit amet feugiat a, 
-        consectetur a arcu. Morbi dictum posuere lorem, consequat ultrices neque tincidunt et. Nam ultrices tempus molestie.</p>
+      <div className="col-md-4 topicThree">
+            Topic 3
       </div>
     </div>
   </div>
@@ -189,7 +205,7 @@ class Home extends Component {
   }else {
     console.log('loged-in')
     return(
-      <Profile />
+      <Profile id={this.state.id} logout={this.handleLogout.bind(this)}/>
     )
   }
 }
