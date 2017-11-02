@@ -53,54 +53,58 @@ class SignUp extends Component {
 
   render(){
     return(
-      <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <fieldset>
+      <div className="modal fade" id="signup">
+        <div className="modal-dialog">
+            <div className="modal-content">
+              <form >
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 className="modal-title">Sign Up</h4>
+                </div>
+                <div className="modal-body">
+                <div className="form-group">
+                  <label className=" " >First Name</label>
+                  <div className="">
+                  <input className="form-control" value={this.state.firstName} onChange={this.handleFirstNameChange} id="fname" name="firstName" type="text" placeholder="John" className="form-control input-md" required=""/>
 
-          <legend>Register Here</legend>
+                  </div>
+                </div>
 
-          <div className="form-group">
-            <label className="col-md-4 control-label" >First Name</label>
-            <div className="col-md-4">
-            <input value={this.state.firstName} onChange={this.handleFirstNameChange} id="fname" name="firstName" type="text" placeholder="John" className="form-control input-md" required=""/>
+                <div className="form-group">
+                  <label className=" " >Last Name</label>
+                  <div className="">
+                  <input className="form-control" id="lname" value={this.state.lastName} onChange={this.handleLastNameChange} name="lastName" type="text" placeholder="Doe" className="form-control input-md" required=""/>
 
+                  </div>
+                </div>
+
+
+                <div className="form-group">
+                  <label className=" " >Email</label>
+                  <div className="">
+                  <input id="email" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="username" type="email" placeholder="johndoe@example.com" className="form-control input-md" required=""/>
+
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className=" " >Password</label>
+                  <div className="">
+                    <input id="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange}name="password" type="password" placeholder="" className="form-control input-md" required=""/>
+
+                  </div>
+                </div>
+                </div>
+                <div className="modal-footer">
+                    <div id="loginError"></div>
+                    <a data-dismiss="modal" className="btn">Close</a>
+                    <a onClick={this.handleSubmit} data-dismiss="modal" value="signup" className="btn btn-primary">Sign Up</a>
+                </div>
+              </form>
             </div>
           </div>
+      </div>
 
-          <div className="form-group">
-            <label className="col-md-4 control-label" >Last Name</label>
-            <div className="col-md-4">
-            <input id="lname" value={this.state.lastName} onChange={this.handleLastNameChange} name="lastName" type="text" placeholder="Doe" className="form-control input-md" required=""/>
-
-            </div>
-          </div>
-
-
-          <div className="form-group">
-            <label className="col-md-4 control-label" >email</label>
-            <div className="col-md-4">
-            <input id="email" value={this.state.email} onChange={this.handleEmailChange} name="username" type="email" placeholder="johndoe@example.com" className="form-control input-md" required=""/>
-
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label className="col-md-4 control-label" >Password</label>
-            <div className="col-md-4">
-              <input id="password" value={this.state.password} onChange={this.handlePasswordChange}name="password" type="password" placeholder="" className="form-control input-md" required=""/>
-
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label className="col-md-4 control-label" ></label>
-            <div className="col-md-8">
-              <button id="save" type="submit" name="save" className="btn btn-success">Register</button>
-              <button id="clear" name="clear" className="btn btn-danger">Reset</button>
-            </div>
-          </div>
-
-          </fieldset>
-      </form>
 
     )
   }

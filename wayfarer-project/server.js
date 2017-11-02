@@ -84,6 +84,7 @@ app.post('/signup', function signup(req, res) {
       mm='0'+mm;
   }
   var today = mm+'/'+dd+'/'+yyyy
+
   User.register(new User({ username: req.body.username, lastName: req.body.lastName, firstName: req.body.firstName, joinDate: today, img: "", currentCity:"" }), req.body.password,
 
     function (err, newUser) {

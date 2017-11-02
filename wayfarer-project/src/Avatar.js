@@ -45,7 +45,6 @@ class Avatar extends React.Component {
 
   render() {
     let {imagePreviewUrl} = this.state;
-    console.log(this.state)
     let $imagePreview = null;
     if (imagePreviewUrl) {
       $imagePreview = (<img src={imagePreviewUrl} />);
@@ -60,6 +59,7 @@ class Avatar extends React.Component {
           {$imagePreview}
           <input className="fileInput"
             type="file"
+            name="avatar"
             onChange={(e)=>this._handleImageChange(e)} />
           <button className="submitButton"
             type="submit"
