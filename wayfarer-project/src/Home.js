@@ -10,7 +10,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email:'', password: '', id:'', isAuthenticated: false
+      email:'', password: '', id:'', isAuthenticated: false, joinDate: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -33,7 +33,7 @@ class Home extends Component {
    })
    .then(res => {
      console.log('res is ', res);
-     this.setState({isAuthenticated: true, id:res._id, username:res.username});
+     this.setState({isAuthenticated: true, id:res.data._id, email:res.data.username});
        console.log("got an cookie!!!log in!!")
        console.log("hello peng...ball is in your court...")
    }, err => {
@@ -44,6 +44,17 @@ class Home extends Component {
 
   componentDidMount(){
     this.cookieLogIn()
+  }
+
+  joinDate(id){
+    axios({
+      method: 'GET',
+      url: `http://localhost:3002/api/users/` + id,
+    }).then(res=>{
+      console.log(res.data.joinDate)
+       this.setState({joinDate: res.data.joinDate})
+    }).catch(err =>
+    console.log("line 57", err))
   }
 
 
@@ -94,7 +105,8 @@ class Home extends Component {
      console.log('res is ', res);
      console.log(this.state.isAuthenticated)
      this.setState({isAuthenticated:true, id:res.data._id});
-     this.setCookie('login', `${email},${password}`, 0.5)
+     this.setCookie('login', `${email},${password}`, 0.5);
+
    }).catch(err => {
      document.getElementById('loginError').innerHTML ="";
      document.getElementById('loginError').append("Invalid Email or Password")});
@@ -205,7 +217,7 @@ class Home extends Component {
   }else {
     console.log('loged-in')
     return(
-      <Profile id={this.state.id} logout={this.handleLogout.bind(this)}/>
+      <Profile id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)} date={this.state.joinDate}/>
     )
   }
 }

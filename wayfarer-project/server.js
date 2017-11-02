@@ -68,6 +68,7 @@ app.get('/', function(req, res){
 
 app.get('/api/users', controllers.user.index);
 app.put('/api/users/:id', controllers.user.update)
+app.get('/api/users/:id', controllers.user.joinDate)
 app.post('/signup', function signup(req, res) {
   console.log(`${req.body.username} ${req.body.password}`);
   console.log("kkk: ", req.body)
