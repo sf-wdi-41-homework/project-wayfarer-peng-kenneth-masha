@@ -5,21 +5,36 @@ import {Link} from 'react-router';
 import './CitiesPage.css';
 import ProfileIcon from './ProfileIcon.js';
 
+
 class CitiesPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authenticate: false,
+    };
+  }
+
+
+
   render(){
+    this.setState({authenticate: this.props.authenticate})
+    console.log("test", this.state.authenticate)
+    // if(this.state.authenticate === true){
     return(
       <div>
-      <div className="navigationWithPic">
-      <nav className="navbar navbar-default" role="navigation">
+      <div className="profile">
+        <nav className="navbar navbar-default" role="navigation">
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#home"><ProfileIcon /></a>
-            </li>
+          <ul className="nav navbar-nav navbar-left">
+            <li><Link to="/" > Profile </Link></li>
+            <li><Link to="/cities"> City Posts </Link></li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right text-center">
+          <li><a  onClick={this.props.logout} href="#"><span className="glyphicon glyphicon-log-out"/> Logout</a></li>
           </ul>
         </div>
       </nav>
-    </div>
+      </div>
 
       <div className="citiesPage container">
         <div className="row cities">
@@ -118,6 +133,12 @@ class CitiesPage extends Component {
         </div>
       </div>
     )
+  // }
+  //   else{
+  //     <div>
+  //     ERROR YOU ARE NOT LOGIN!!!
+  //     </div>
+  //   }
   }
 };
 
