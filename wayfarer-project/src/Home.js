@@ -12,7 +12,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email:'', password: '', id:'', isAuthenticated: false, joinDate: '', firstName:'', lastName:'',
+      email:'', password: '', id:'', isAuthenticated: false, joinDate: '', firstName:'', lastName:'', currentCity: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -129,7 +129,24 @@ class Home extends Component {
   }
 
 
-///signup
+///edit city
+      cityEdit(e){
+        axios({
+            method: 'put',
+            url: `http://localhost:3002/api/users/` + this.state.id,
+            data: {
+              currentCity: this.state.currentCity
+            },
+           }).then(res => {
+             this.setState({currentCity: res.data.currentCity})
+        }).catch(err => {
+          console.log(err)
+       })
+      }
+
+      handleCityChange(e){
+        this.setState({currentCity: e.target.value});
+      }
 
 
 
@@ -190,8 +207,8 @@ class Home extends Component {
 
 
 
-  <div className="topics container"> 
-      <div className="row">     
+  <div className="topics container">
+      <div className="row">
        <div className="col-md-4 topic">
               <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
       </div>
@@ -229,7 +246,8 @@ class Home extends Component {
     return(
       <Profile firstName={this.state.firstName} lastName={this.state.lastName}
       id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)}
-      date={this.state.joinDate}/>
+      date={this.state.joinDate} cityEdit={this.cityEdit.bind(this)}
+      handleCityChange ={this.handleCityChange.bind(this)}/>
     )
   }
 }

@@ -13,32 +13,24 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentCity: "",
+      profile: true, city: false
+
     };
-    this.cityEdit.bind(this)
   };
   componentDidMount(){
   this.props.joinDate(this.props.id)
   }
 
-  cityEdit(){
 
-    axios({
-        method: 'put',
-        url: `http://localhost:3002/api/users/` + this.props.id,
-        data: {
-          currentCity: this.state.currentCity
-        },
-       }).then(res => {
-         console.log(res)
-    }).catch(err => {
-      console.log(err)
-   })
+
+  clickCity(){
+    this.setState({profile: false, city: true})
   }
 
-  handleCityChange(e){
-    this.setState({currentCity: e.target.value});
+  clickCity(){
+    this.setState({profile: true, city: false})
   }
+
 
 
 
@@ -46,7 +38,7 @@ class Profile extends Component {
 
     return (
         <div className="profile">
-          <nav className="navbar navbar-default" role="navigation">
+        <nav className="navbar navbar-default" role="navigation">
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-left">
               <li><Link to="/"> Profile </Link></li>
@@ -74,8 +66,9 @@ class Profile extends Component {
               <span className="	glyphicon glyphicon-pencil"/>
               </a>
 
-              <EditCity cityEdit={this.cityEdit.bind(this)}
-              handleCityChange ={this.handleCityChange.bind(this)}/>
+              <EditCity cityEdit={this.props.cityEdit}
+              handleCityChange ={this.props.handleCityChange}
+              id={this.props.id}/>
 
               </div>
               <div className="col-md-12 nestedBox3">

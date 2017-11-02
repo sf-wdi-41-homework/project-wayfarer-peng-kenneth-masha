@@ -10,7 +10,7 @@ class EditCity extends Component{
       <div className="modal fade" id="editCity">
       	<div className="modal-dialog">
             <div className="modal-content">
-              <form >
+              <form>
                 <div className="modal-header">
                   <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
                   <h4 className="modal-title">Current City</h4>
@@ -24,7 +24,7 @@ class EditCity extends Component{
                 <div className="modal-footer">
                     <div id="loginError"></div>
                     <a data-dismiss="modal" className="btn">Close</a>
-                    <a onClick={this.props.cityEdit} data-dismiss="modal" value="login" className="btn btn-primary">Save</a>
+                    <a data-dismiss="modal" onClick={this.props.cityEdit} value="login" className="btn btn-primary">Save</a>
                 </div>
               </form>
             </div>

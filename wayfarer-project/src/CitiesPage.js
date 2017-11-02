@@ -14,10 +14,11 @@ class CitiesPage extends Component {
     };
   }
 
+  
+
 
 
   render(){
-    this.setState({authenticate: this.props.authenticate})
     console.log("test", this.state.authenticate)
     // if(this.state.authenticate === true){
     return(
