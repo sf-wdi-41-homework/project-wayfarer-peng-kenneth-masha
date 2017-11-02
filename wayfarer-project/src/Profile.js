@@ -39,7 +39,8 @@ class Profile extends Component {
             <div className="col-md-6 boxTwo">
               <div className="row">
               <div className="col-md-12 nestedBox1">
-                First Name Last Name
+                First Name: {this.props.firstName}
+                <br/>Last Name: {this.props.lastName}
               </div>
               </div>
               <div className="row">
