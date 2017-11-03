@@ -17,6 +17,12 @@
   margin-bottom: 10px;
   padding-bottom: 5px;
   text-align: center;
+
+}
+
+.citiesfulldiv{
+  height: 800px;
+  overflow-y: scroll;
 }
 
 .sf{
@@ -41,4 +47,9 @@
 
 .navbar {
 margin-bottom: 0px;
+}
+
+.posts{
+  height: 800px;
+  overflow-y: scroll;
 }

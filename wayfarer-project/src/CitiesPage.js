@@ -103,6 +103,7 @@ class CitiesPage extends Component {
         <div className="row cities">
             <div className="col-md-6 ">
               <h1>Cities</h1>
+              <div className="citiesfulldiv">
                 <div className="row sf">
                   <div className="col-md-12 sanfrancisco sf">
                         <div className="col-md-6 sfPic sf">
@@ -154,11 +155,12 @@ class CitiesPage extends Component {
                         </div>
                       </div>
                     </div>
+                  </div>
             <div className="col-md-6">
               <h1>Posts
               <button type="button" className="btn btn-secondary addPosts" data-toggle="modal" data-target="#addNewPost"><i className="glyphicon glyphicon-plus"></i></button>
               </h1>
-              <div>
+              <div className="posts">
               {post}
               </div>
 
