@@ -69,7 +69,7 @@ class Profile extends Component {
         <div className="topics container">
           <div className="row">
             <div className="col-md-6 boxOne">
-
+                <h1><span>Profile Page</span></h1>
               <Avatar id={this.props.id}/>
             </div>
             <div className="col-md-6 boxTwo">
@@ -77,7 +77,9 @@ class Profile extends Component {
                 <span>Welcome!</span> {this.props.firstName.charAt(0).toUpperCase() + this.props.firstName.slice(1)} {this.props.lastName.charAt(0).toUpperCase() + this.props.lastName.slice(1)}
               </div>
               <div className="col-md-12 nestedBox2">
+
               Current City:<a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
+
               <span className="	glyphicon glyphicon-pencil"/>
               </a>
               <br/> {this.props.currentCity.charAt(0).toUpperCase() + this.props.currentCity.slice(1)}
