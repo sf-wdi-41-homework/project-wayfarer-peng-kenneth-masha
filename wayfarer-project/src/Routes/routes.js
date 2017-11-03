@@ -4,7 +4,6 @@ import { Route } from 'react-router';
 import Home from '../Home';
 import SignUp from '../Components/Signup';
 import Profile from '../Profile';
-import CitiesPage from '../CitiesPage';
 import SanFrancisco from '../SanFrancisco';
 
 var routes = (
