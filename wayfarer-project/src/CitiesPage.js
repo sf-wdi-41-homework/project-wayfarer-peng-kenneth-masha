@@ -4,6 +4,7 @@ import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import './CitiesPage.css';
 import ProfileIcon from './ProfileIcon.js';
+import Post from './Components/Post'
 
 
 class CitiesPage extends Component {
@@ -11,7 +12,7 @@ class CitiesPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location:"San Francisco", title:"", details:""
+      location:"San Francisco", title:"", details:"", allPost: []
     };
   };
 
@@ -33,11 +34,12 @@ class CitiesPage extends Component {
         title: title,
         details: details,
       }
-    }).then(yay=>{console.log(yay)}).catch(err=>{console.log(`CitiesPage 29`, err)})
+    }).then(yay=>{console.log(yay)})
+      .catch(err=>{console.log(`CitiesPage 29`, err)})
   }
 
   location(e){
-    console.log(this.props.id)
+    console.log(this.state.allPost)
     console.log(this.state.location)
     this.setState({location: e.target.value})
   }
@@ -49,8 +51,25 @@ class CitiesPage extends Component {
     this.setState({details: e.target.value})
   }
 
+  componentDidMount(){
+    axios({
+    method: 'GET',
+    url: 'http://localhost:3002/api/post',
+  }).then(succ=>{this.setState({allPost: succ.data});
+          console.log(this.state.allPost)})
+    .catch(err=>console.log('citiesPage 56', err))
+  }
+
+
+
 
   render(){
+    let post = this.state.allPost.map( post => {
+      return(
+      <Post location={post.location} title={post.title} details={post.details}/>
+    )
+    })
+
     if(this.props.authenticate){
     return(
       <div>
@@ -126,6 +145,9 @@ class CitiesPage extends Component {
             <div className="col-md-6">
               <h1>Posts</h1>
               <button type="button" className="btn btn-secondary addPosts" data-toggle="modal" data-target="#addNewPost"><i className="glyphicon glyphicon-plus"></i></button>
+              <div>
+              {post}
+              </div>
 
               <div id="addNewPost" className="modal fade" role="dialog">
                 <div className="modal-dialog">
@@ -135,10 +157,10 @@ class CitiesPage extends Component {
                         <h4 className="modal-title">Create A New Post</h4>
                       </div>
                       <div className="modal-body">
-                        <form onSubmit={this.createPost.bind(this)}>
+                        <form >
                           <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">City</label>
-                            <select onChange={this.location.bind(this)} value={this.state.location} className="form-control" id="exampleFormControlSelect1">
+                            <select onChange={this.location.bind(this)} className="form-control" id="exampleFormControlSelect1">
                               <option>San Francisco</option>
                               <option>London</option>
                               <option>Sydney</option>
@@ -146,15 +168,15 @@ class CitiesPage extends Component {
                               <option>New York</option>
                             </select>
                           </div>
-                          <div className="form-group">
+                          <div className="form-group" >
                             <label htmlFor="title">Title</label>
-                            <input onChange={this.titleChange.bind(this)} value={this.state.title} type="text" className="form-control" id="postTitle" placeholder="Enter Post Title Here"/>
+                            <input onChange={this.titleChange.bind(this)}  type="text" className="form-control" id="postTitle" placeholder="Enter Post Title Here" required/>
                             </div>
                             <div className="form-group">
                               <label htmlFor="post">Share Your Experience:</label>
-                              <textarea onChange={this.detailsChange.bind(this)} value={this.state.details} className="form-control" id="postArea" rows="3"></textarea>
+                              <textarea onChange={this.detailsChange.bind(this)} className="form-control" id="postArea" rows="3" required></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                            <button  onClick={this.createPost.bind(this)} data-dismiss="modal" type="submit" className="btn btn-primary">Submit</button>
                         </form>
                       </div>
                     </div>

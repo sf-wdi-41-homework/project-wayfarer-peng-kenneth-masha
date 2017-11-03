@@ -13,6 +13,7 @@ class Home extends Component {
     super(props);
     this.state = {
       email:'', password: '', id:'', isAuthenticated: false, joinDate: '', firstName:'', lastName:'', currentCity: "",
+      myPost:[],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -55,6 +56,18 @@ class Home extends Component {
     }).then(res=>{
       console.log(res.data.joinDate)
        this.setState({joinDate: res.data.joinDate, firstName: res.data.firstName, lastName: res.data.lastName, currentCity: res.data.currentCity})
+    }).catch(err =>
+    console.log("line 57", err))
+  }
+
+  myPost(id){
+    axios({
+      method: 'GET',
+      url: `http://localhost:3002/api/post/` + id,
+    }).then(res=>{
+      console.log(res)
+      this.setState({myPost: res.data})
+      console.log(this.state.myPost) 
     }).catch(err =>
     console.log("line 57", err))
   }
@@ -225,10 +238,10 @@ class Home extends Component {
   <div className="topics container">
       <div className="row">
        <div className="col-md-4 topic">
-              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+              <i className="fa fa-suitcase fa-2x" aria-hidden="true"></i>
       </div>
         <div className="col-md-4 topicTitle">
-         <h2 class = "Wayfarer"> WAYFARER IS...</h2>
+         <h2 className = "Wayfarer"> WAYFARER IS...</h2>
          </div>
         <div className="col-md-4 topic">
         </div>
@@ -236,7 +249,7 @@ class Home extends Component {
 
     <div className="row">
       <div className="col-md-4 topic">
-          <h3>WANDERLUST</h3>              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+          <h3>WANDERLUST</h3>              <i className="fa fa-suitcase fa-2x" aria-hidden="true"></i>
            <p> Get away from your everyday. Wander, explore, discover your desire to travel. Meet new people and experience
            new experiences. Make each day a new horizon.</p>
 
@@ -263,7 +276,8 @@ class Home extends Component {
       id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)}
       date={this.state.joinDate} cityEdit={this.cityEdit.bind(this)}
       handleCityChange ={this.handleCityChange.bind(this)}
-      authenticate={this.state.isAuthenticated} currentCity={this.state.currentCity}/>
+      authenticate={this.state.isAuthenticated} currentCity={this.state.currentCity}
+      myPost={this.myPost.bind(this)} personalPost={this.state.myPost}/>
     )
   }
 }
