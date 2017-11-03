@@ -238,7 +238,7 @@ class Home extends Component {
   <div className="topics container">
       <div className="row">
        <div className="col-md-4 topic">
-              <i className="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+
       </div>
         <div className="col-md-4 topicTitle">
          <h2 className = "Wayfarer"> WAYFARER IS...</h2>
@@ -251,16 +251,16 @@ class Home extends Component {
       <div className="col-md-4 topic">
           <h3>WANDERLUST</h3>              <i className="fa fa-suitcase fa-2x" aria-hidden="true"></i>
            <p> Get away from your everyday. Wander, explore, discover your desire to travel. Meet new people and experience
-           new experiences. Make each day a new horizon.</p>
+           new experiences. Make each day new.</p>
 
       </div>
       <div className="col-md-4 topic">
-           <h3>ADVENTURE</h3>
+           <h3>ADVENTURE</h3>  <i className="fa fa-snowflake-o fa-2x" aria-hidden="true"></i>
            <p> Adventure is out there. Sometimes, you can find yourself in the middle
            of nowhere and sometimes in the middle of nowhere is where your find yourself.</p>
       </div>
       <div className="col-md-4 topic">
-           <h3>COMMUNITY</h3>
+           <h3>COMMUNITY</h3> <i className="fa fa-pencil fa-2x" aria-hidden="true"></i>
            <p>Share tips and tricks of travel.
         Share your thoughts about your favorite locations around the world
            with people who are also looking for their next adventure.</p>
