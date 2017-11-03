@@ -34,7 +34,8 @@ class CitiesPage extends Component {
         title: title,
         details: details,
       }
-    }).then(yay=>{console.log(yay)})
+    }).then(yay=>{console.log(yay)
+            this.componentDidMount()})
       .catch(err=>{console.log(`CitiesPage 29`, err)})
   }
 
@@ -50,6 +51,7 @@ class CitiesPage extends Component {
   detailsChange(e){
     this.setState({details: e.target.value})
   }
+
 
   componentDidMount(){
     axios({
