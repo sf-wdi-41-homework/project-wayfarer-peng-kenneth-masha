@@ -13,6 +13,7 @@ class Home extends Component {
     super(props);
     this.state = {
       email:'', password: '', id:'', isAuthenticated: false, joinDate: '', firstName:'', lastName:'', currentCity: "",
+      myPost:[],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -55,6 +56,18 @@ class Home extends Component {
     }).then(res=>{
       console.log(res.data.joinDate)
        this.setState({joinDate: res.data.joinDate, firstName: res.data.firstName, lastName: res.data.lastName, currentCity: res.data.currentCity})
+    }).catch(err =>
+    console.log("line 57", err))
+  }
+
+  myPost(id){
+    axios({
+      method: 'GET',
+      url: `http://localhost:3002/api/post/` + id,
+    }).then(res=>{
+      console.log(res)
+      this.setState({myPost: res.data})
+      console.log(this.state.myPost) 
     }).catch(err =>
     console.log("line 57", err))
   }
@@ -263,7 +276,8 @@ class Home extends Component {
       id={this.state.id} logout={this.handleLogout.bind(this)} joinDate={this.joinDate.bind(this)}
       date={this.state.joinDate} cityEdit={this.cityEdit.bind(this)}
       handleCityChange ={this.handleCityChange.bind(this)}
-      authenticate={this.state.isAuthenticated} currentCity={this.state.currentCity}/>
+      authenticate={this.state.isAuthenticated} currentCity={this.state.currentCity}
+      myPost={this.myPost.bind(this)} personalPost={this.state.myPost}/>
     )
   }
 }

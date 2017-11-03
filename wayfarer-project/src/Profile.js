@@ -7,6 +7,7 @@ import ShowPage from './ShowPage.js';
 import Avatar from './Avatar';
 import EditCity from './Components/EditCity'
 import CitiesPage from './CitiesPage'
+import MyPost from './Components/myPost'
 
 
 class Profile extends Component {
@@ -21,6 +22,7 @@ class Profile extends Component {
   };
   componentDidMount(){
   this.props.joinDate(this.props.id)
+  this.props.myPost(this.props.id)
   }
 
 
@@ -39,8 +41,15 @@ class Profile extends Component {
 
 
   render() {
+    let myPost = this.props.personalPost.map( post => {
+      return(
+      <MyPost myLocation={post.location} myTitle={post.title} myDetails={post.details}/>
+    )
+    })
+
 
     if(this.state.profile === true){
+      console.log(this.props.personalPost)
 
     return (
         <div className="profile">
@@ -68,9 +77,12 @@ class Profile extends Component {
                 <span>Welcome!</span> {this.props.firstName.charAt(0).toUpperCase() + this.props.firstName.slice(1)} {this.props.lastName.charAt(0).toUpperCase() + this.props.lastName.slice(1)}
               </div>
               <div className="col-md-12 nestedBox2">
-              <span>Current City:</span> {this.props.currentCity.charAt(0).toUpperCase() + this.props.currentCity.slice(1)}<a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
+
+              Current City:<a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
+
               <span className="	glyphicon glyphicon-pencil"/>
               </a>
+              <br/> {this.props.currentCity.charAt(0).toUpperCase() + this.props.currentCity.slice(1)}
 
               <EditCity cityEdit={this.props.cityEdit}
               handleCityChange ={this.props.handleCityChange}
@@ -85,9 +97,7 @@ class Profile extends Component {
             </div>
           <div className="row">
             <div className="postArea" id ="postArea">
-              <h3>Post 1:</h3><p>San Francisco </p>
-              <h3>Post 2:</h3><p>Seattle </p>
-              <h3>Post 3:</h3><p>New York </p>
+              {myPost}
             </div>
           </div>
         </div>

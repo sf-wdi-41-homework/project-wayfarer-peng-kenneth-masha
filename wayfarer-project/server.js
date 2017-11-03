@@ -111,9 +111,25 @@ app.get('/logout', function (req, res) {
 
 ///Post CRUD
 
+//get all post
+app.get('/api/post', function allPosts(req, res){
+  db.Post.find(function postList(err, succ){
+    res.json(succ)
+  })
+})
+
+//get personal post
+app.get('/api/post/:id', function myPost(req, res){
+  db.Post.find({userId: req.params.id}, function(err, success){
+    console.log(success)
+    res.json(success)
+  })
+})
+
+//create post
 app.post('/api/post', function(req, res){
   let newPost = new Post({
-    userId:req.body.id,
+    userId:req.body.userId,
     location: req.body.location,
     title: req.body.title,
     details: req.body.details,

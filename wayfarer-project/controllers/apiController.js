@@ -31,4 +31,5 @@ function createPost(req, res) {
 
 module.exports = {
   createPost: createPost,
+  allPosts: allPosts
 }
