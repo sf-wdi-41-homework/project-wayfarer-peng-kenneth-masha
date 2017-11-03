@@ -225,10 +225,10 @@ class Home extends Component {
   <div className="topics container">
       <div className="row">
        <div className="col-md-4 topic">
-              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+              <i className="fa fa-suitcase fa-2x" aria-hidden="true"></i>
       </div>
         <div className="col-md-4 topicTitle">
-         <h2 class = "Wayfarer"> WAYFARER IS...</h2>
+         <h2 className = "Wayfarer"> WAYFARER IS...</h2>
          </div>
         <div className="col-md-4 topic">
         </div>
@@ -236,7 +236,7 @@ class Home extends Component {
 
     <div className="row">
       <div className="col-md-4 topic">
-          <h3>WANDERLUST</h3>              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+          <h3>WANDERLUST</h3>              <i className="fa fa-suitcase fa-2x" aria-hidden="true"></i>
            <p> Get away from your everyday. Wander, explore, discover your desire to travel. Meet new people and experience
            new experiences. Make each day a new horizon.</p>
 
