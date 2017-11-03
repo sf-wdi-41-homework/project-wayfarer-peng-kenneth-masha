@@ -47,6 +47,7 @@ class Home extends Component {
 
   componentDidMount(){
     this.cookieLogIn()
+    this.myPost(this.state.id)
   }
 
   joinDate(id){
@@ -67,7 +68,7 @@ class Home extends Component {
     }).then(res=>{
       console.log(res)
       this.setState({myPost: res.data})
-      console.log(this.state.myPost) 
+      console.log(this.state.myPost)
     }).catch(err =>
     console.log("line 57", err))
   }

@@ -105,7 +105,8 @@ class Profile extends Component {
     )}else if(this.state.city === true){
       return(
         <CitiesPage id={this.props.id} clickProfile={this.clickProfile.bind(this)}
-        clickCity={this.clickCity.bind(this)} authenticate={this.props.authenticate} logout={this.props.logout}/>
+        clickCity={this.clickCity.bind(this)} authenticate={this.props.authenticate} logout={this.props.logout}
+        personalPost={this.props.personalPost}/>
       )
     }
     }
