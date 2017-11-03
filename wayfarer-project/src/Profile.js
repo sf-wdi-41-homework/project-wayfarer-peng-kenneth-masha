@@ -78,9 +78,9 @@ class Profile extends Component {
               </div>
               <div className="col-md-12 nestedBox2">
 
-              Current City:<a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
+              <span>Current City:</span><a className="cityEdit" href="#" data-toggle="modal" data-target="#editCity">
 
-              <span className="	glyphicon glyphicon-pencil"/>
+              <span className=" glyphicon glyphicon-pencil"/>
               </a>
               <br/> {this.props.currentCity.charAt(0).toUpperCase() + this.props.currentCity.slice(1)}
 

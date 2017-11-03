@@ -123,7 +123,7 @@ class CitiesPage extends Component {
     )
     })
     return(
-      <div>
+      <div className="wholePage">
       <div className="profile">
       <nav className="navbar navbar-default" role="navigation">
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -140,34 +140,37 @@ class CitiesPage extends Component {
 
       <div className="citiesPage container">
         <div className="row cities">
-            <div className="col-md-6">
+            <div className="col-md-6 ">
               <h1>Cities</h1>
+
                 <div className="row">
                   <div onClick={this.displayedSF.bind(this)} className="col-md-12 sanfrancisco">
                         <div className="col-md-6 sfPic">
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164726-200.png"/>
                         </div>
-                        <div className="col-md-6 sfLink">
+                        <div className="col-md-6 sfLink sf">
                           <h3><a href="./cities/sanfrancisco">San Francisco</a></h3>
                         </div>
                   </div>
                 </div>
                 <div className="row">
+
                   <div onClick={this.displayedLO.bind(this)} className="col-md-12 london">
                         <div className="col-md-6 londonPic">
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164722-200.png"/>
                         </div>
-                        <div className="col-md-6 londonLink">
+                        <div className="col-md-6 londonLink london">
                           <h3><a href="./cities/london">London</a></h3>
                         </div>
                       </div>
                 </div>
                 <div className="row">
+
                   <div onClick={this.displayedSY.bind(this)} className="col-md-12 sydney">
                         <div className="col-md-6 sydneyPic">
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/210016-200.png"/>
                         </div>
-                        <div className="col-md-6 sydneyLink">
+                        <div className="col-md-6 sydneyLink sydney">
                           <h3><a href="./cities/sydney">Sydney</a></h3>
                         </div>
                       </div>
@@ -177,7 +180,7 @@ class CitiesPage extends Component {
                               <div className="col-md-6 seattlePic">
                                 <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164727-200.png"/>
                               </div>
-                              <div className="col-md-6 seattleLink">
+                              <div className="col-md-6 seattleLink seattle">
                                 <h3><a href="./cities/seattle">Seattle</a></h3>
                               </div>
                           </div>
@@ -187,15 +190,16 @@ class CitiesPage extends Component {
                                 <div className="col-md-6 nyPic">
                                   <img src="https://image.flaticon.com/icons/png/512/244/244652.png"/>
                                 </div>
-                                <div className="col-md-6 nyLink">
+                                <div className="col-md-6 nyLink newYork">
                                   <h3><a href="./cities/newyork">NewYork</a></h3>
                                 </div>
                         </div>
                       </div>
                     </div>
             <div className="col-md-6">
-              <h1>Posts</h1>
+              <h1>Posts
               <button type="button" className="btn btn-secondary addPosts" data-toggle="modal" data-target="#addNewPost"><i className="glyphicon glyphicon-plus"></i></button>
+              </h1>
               <div>
               {post}
               </div>
