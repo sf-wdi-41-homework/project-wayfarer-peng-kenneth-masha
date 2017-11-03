@@ -142,7 +142,7 @@ class CitiesPage extends Component {
         <div className="row cities">
             <div className="col-md-6 ">
               <h1>Cities</h1>
-
+              <div className="citiesfulldiv">
                 <div className="row">
                   <div onClick={this.displayedSF.bind(this)} className="col-md-12 sanfrancisco">
                         <div className="col-md-6 sfPic">
@@ -196,11 +196,12 @@ class CitiesPage extends Component {
                         </div>
                       </div>
                     </div>
+                  </div>
             <div className="col-md-6">
               <h1>Posts
               <button type="button" className="btn btn-secondary addPosts" data-toggle="modal" data-target="#addNewPost"><i className="glyphicon glyphicon-plus"></i></button>
               </h1>
-              <div>
+              <div className="posts">
               {post}
               </div>
 
