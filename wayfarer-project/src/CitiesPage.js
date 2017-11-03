@@ -12,7 +12,7 @@ class CitiesPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location:"San Francisco", title:"", details:"", allPost: []
+      location:"San Francisco", title:"", details:"", allPost: [], displayedCity:""
     };
   };
 
@@ -65,10 +65,17 @@ class CitiesPage extends Component {
     .catch(err=>console.log('citiesPage 56', err))
   }
 
+  displayedCity(city){
+    this.setState({displayedCity: city})
+  }
+
 
 
 
   render(){
+    //displayed city controller
+
+
     let post = this.state.allPost.map( post => {
       return(
       <Post location={post.location} title={post.title} details={post.details}/>

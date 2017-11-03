@@ -47,6 +47,7 @@ class Home extends Component {
 
   componentDidMount(){
     this.cookieLogIn()
+    this.myPost(this.state.id)
   }
 
   joinDate(id){
