@@ -5,6 +5,12 @@ import {Link} from 'react-router';
 import './CitiesPage.css';
 import ProfileIcon from './ProfileIcon.js';
 import Post from './Components/Post'
+import SanFrancisco from './SanFrancisco'
+import NewYork from './NewYork'
+import Sydney from './Sydney'
+import Seattle from './Seattle'
+import London from './London'
+
 
 
 class CitiesPage extends Component {
@@ -12,7 +18,8 @@ class CitiesPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location:"San Francisco", title:"", details:"", allPost: [], displayedCity:""
+      location:"San Francisco", title:"", details:"", allPost: [], sanfrancisco: true, london: false, sydney: false,
+      seattle: false, newyork: false
     };
   };
 
@@ -65,24 +72,56 @@ class CitiesPage extends Component {
     .catch(err=>console.log('citiesPage 56', err))
   }
 
-  displayedCity(city){
-    this.setState({displayedCity: city})
-  }
+  //displayed city controller
+  displayedSF(e){
+    console.log(this.state)
+    this.setState({sanfrancisco: true, london: false, sydney: false,
+                    seattle: false, newyork: false})
+    }
+  displayedNY(e){
+    this.setState({sanfrancisco: false, london: false, sydney: false,
+                    seattle: false, newyork: true})
+    }
+  displayedLO(e){
+    this.setState({sanfrancisco: false, london: true, sydney: false,
+                    seattle: false, newyork: false})
+    }
+  displayedSEA(e){
+    this.setState({sanfrancisco: false, london: false, sydney: false,
+                    seattle: true, newyork: false})
+    }
+  displayedSY(e){
+    console.log(this.state)
+    this.setState({sanfrancisco: false, london: false, sydney: true,
+                    seattle: false, newyork: false})
+    }
 
 
 
 
   render(){
-    //displayed city controller
-
+    let displayedCity;
+    if(this.state.sanfrancisco === true){
+      displayedCity = <SanFrancisco allPost={this.state.allPost} />
+     }
+    else if (this.state.london === true) {
+      displayedCity = <London allPost={this.state.allPost}/>
+    }
+    else if (this.state.seattle === true) {
+      displayedCity = <Seattle allPost={this.state.allPost}/>
+    }
+    else if (this.state.sydney === true) {
+      displayedCity = <Sydney allPost={this.state.allPost}/>
+    }
+    else if (this.state.newyork === true) {
+      displayedCity = <NewYork allPost={this.state.allPost}/>
+    }
 
     let post = this.state.allPost.map( post => {
       return(
       <Post location={post.location} title={post.title} details={post.details}/>
     )
     })
-
-    if(this.props.authenticate){
     return(
       <div className="wholePage">
       <div className="profile">
@@ -103,9 +142,10 @@ class CitiesPage extends Component {
         <div className="row cities">
             <div className="col-md-6 ">
               <h1>Cities</h1>
-                <div className="row sf">
-                  <div className="col-md-12 sanfrancisco sf">
-                        <div className="col-md-6 sfPic sf">
+
+                <div className="row">
+                  <div onClick={this.displayedSF.bind(this)} className="col-md-12 sanfrancisco">
+                        <div className="col-md-6 sfPic">
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164726-200.png"/>
                         </div>
                         <div className="col-md-6 sfLink sf">
@@ -114,8 +154,9 @@ class CitiesPage extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-12 london">
-                        <div className="col-md-6 londonPic london">
+
+                  <div onClick={this.displayedLO.bind(this)} className="col-md-12 london">
+                        <div className="col-md-6 londonPic">
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164722-200.png"/>
                         </div>
                         <div className="col-md-6 londonLink london">
@@ -124,8 +165,9 @@ class CitiesPage extends Component {
                       </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-12 sydney">
-                        <div className="col-md-6 sydneyPic sydney">
+
+                  <div onClick={this.displayedSY.bind(this)} className="col-md-12 sydney">
+                        <div className="col-md-6 sydneyPic">
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/210016-200.png"/>
                         </div>
                         <div className="col-md-6 sydneyLink sydney">
@@ -134,8 +176,8 @@ class CitiesPage extends Component {
                       </div>
                 </div>
                       <div className="row">
-                        <div className="col-md-12 seattle">
-                              <div className="col-md-6 seattlePic seattle">
+                        <div onClick={this.displayedSEA.bind(this)} className="col-md-12 seattle">
+                              <div className="col-md-6 seattlePic">
                                 <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164727-200.png"/>
                               </div>
                               <div className="col-md-6 seattleLink seattle">
@@ -144,9 +186,9 @@ class CitiesPage extends Component {
                           </div>
                         </div>
                         <div className="row">
-                          <div className="col-md-12 newYork">
-                                <div className="col-md-6 nyPic newYork">
-                                  <img src="https://www.shareicon.net/download/2015/08/10/83210_new-york.ico"/>
+                          <div onClick={this.displayedNY.bind(this)} className="col-md-12 newYork">
+                                <div className="col-md-6 nyPic">
+                                  <img src="https://image.flaticon.com/icons/png/512/244/244652.png"/>
                                 </div>
                                 <div className="col-md-6 nyLink newYork">
                                   <h3><a href="./cities/newyork">NewYork</a></h3>
@@ -198,13 +240,10 @@ class CitiesPage extends Component {
             </div>
           </div>
         </div>
+        {displayedCity}
+
       </div>
     )
-  }
-    else{
-      <div>
-      </div>
-    }
   }
 };
 

@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {browserHistory} from 'react-router';
 import ProfileIcon from './ProfileIcon';
-import './sanFrancisco.css';
+import './sanFrancisco.css'
 import MyPost from './Components/myPost'
 
 
-class SanFrancisco extends Component {
 
+class Seattle extends Component {
     render() {
-      let sfPost = this.props.allPost.filter((post)=>{
-        return post.location=== "San Francisco"
+      let seaPost = this.props.allPost.filter((post)=>{
+        return post.location=== "Seattle"
       })
-      let post = sfPost.map((post)=>{
+      let post = seaPost.map((post)=>{
           return (
               <MyPost myTitle={post.title} myDetails={post.details}/>
             )}
@@ -25,14 +25,14 @@ class SanFrancisco extends Component {
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
                   <li>
-                  <h1> San Francisco </h1>
+                    <h1> Seattle </h1>
                   </li>
                 </ul>
               </div>
             </nav>
           </div>
           <div className="mainImage">
-              <img src="  https://img.grouponcdn.com/deal/i7vJRC7t4ffVzxWeerCA/iy-2048x1228/v1/c620x376.jpg" alt="Golden Gate Bridge"/>
+              <img src="https://62b44a55c8f3a87440df-45c7b4d5aac2f388172e587008aaac69.ssl.cf2.rackcdn.com/event-536-1470870017-ny-power-women-large.jpg" alt="NY"/>
           </div>
           <div className="Posts">
             {post}
@@ -42,4 +42,4 @@ class SanFrancisco extends Component {
     }
   }
 
-  export default SanFrancisco;
+  export default Seattle;
