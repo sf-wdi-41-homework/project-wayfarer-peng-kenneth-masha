@@ -37,6 +37,9 @@ class CitiesPage extends Component {
     }).then(yay=>{console.log(yay)
             this.componentDidMount()})
       .catch(err=>{console.log(`CitiesPage 29`, err)})
+      document.getElementById('postArea').value = "";
+      document.getElementById('postTitle').value = "";
+
   }
 
   location(e){
