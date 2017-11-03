@@ -149,7 +149,7 @@ class CitiesPage extends Component {
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164726-200.png"/>
                         </div>
                         <div className="col-md-6 sfLink sf">
-                          <h3><a href="./cities/sanfrancisco">San Francisco</a></h3>
+                          <h3><a href="#" onClick={this.displayedSF.bind(this)}>San Francisco</a></h3>
                         </div>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ class CitiesPage extends Component {
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164722-200.png"/>
                         </div>
                         <div className="col-md-6 londonLink london">
-                          <h3><a href="./cities/london">London</a></h3>
+                          <h3><a href="#" onClick={this.displayedLO.bind(this)}>London</a></h3>
                         </div>
                       </div>
                 </div>
@@ -171,7 +171,7 @@ class CitiesPage extends Component {
                           <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/210016-200.png"/>
                         </div>
                         <div className="col-md-6 sydneyLink sydney">
-                          <h3><a href="./cities/sydney">Sydney</a></h3>
+                          <h3><a href="#" onClick={this.displayedSY.bind(this)}>Sydney</a></h3>
                         </div>
                       </div>
                 </div>
@@ -181,7 +181,7 @@ class CitiesPage extends Component {
                                 <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/164727-200.png"/>
                               </div>
                               <div className="col-md-6 seattleLink seattle">
-                                <h3><a href="./cities/seattle">Seattle</a></h3>
+                                <h3><a href="#" onClick={this.displayedSEA.bind(this)}>Seattle</a></h3>
                               </div>
                           </div>
                         </div>
