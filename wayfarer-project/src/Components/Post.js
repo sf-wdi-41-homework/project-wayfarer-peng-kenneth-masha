@@ -6,8 +6,8 @@ class Post extends Component{
     return(
       <div className="row">
         <div className="col-md-12">
-          <h1>Subject: {this.props.title}</h1>
-          <h4>{this.props.location}</h4>
+          <h1>{this.props.title}</h1>
+          <h3>{this.props.location}</h3>
           <br/>
           <p> {this.props.details} </p>
         </div>
